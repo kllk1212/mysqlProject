@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 10월 4일 한글깨져서 헤더 주석
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+      -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+    <title>창업나무</title>
+
+    <!-- <link rel="icon" href="/{=favicon}" -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../css/main.css?v=<?=time()?>">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script defer src="../js/common.js"></script>
+
+    <!-- <script src="https://www.youtube.com/player_api"></script> -->
+
+
+</head>
+<!-- ============================================================================= -->
+<!-- ============================================================================= -->
+
+<!-- 마우스드래그금지 -->
+<!-- <body ondragstart="return false" onselectstart="return false"> -->
+
+<body>
+    <h1 id="Homepage" class="bld">창업나무 홈페이지</h1>
+    <!-- wrap -->
+    <div id="wrap">
+        <!-- container -->
+        <div id="container">
+            <!-- ======================================== -->
+            <!-- header -->
+            <header id="header" class="header">
+                <div class="header_wrap layout_wrap">
+                    <div class="header_left">
+                        <div class="header_logo">
+                            <a href="../main/main">
+                                <img src="../img/common/logo.png" alt="창업나무" class="vP">
+                                <img src="..//img/common/logoH_tree.png" alt="창업나무" class="vT">
+                            </a>
+                        </div>
+                        <nav class="nav">
+                            <ul id="gnb" class="gnb">
+                                <li><a href="../main/main">홈</a></li>
+                                <li class="depth">
+                                    <a href="">프렌차이즈 정보</a>
+                                    <div>
+                                        <ul class="fx">
+                                            <li><a href="../franchise/reviewMain">기업평점/리뷰</a></li>
+                                            <li><a href="../franchise/rankMain">순위</a></li>
+                                            <li><a href="../map/mapSearchMain">지도</a></li>
+                                            <li><a href="../diagnosis/diagnosisMain">조건검색</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="../franchise/incomeCalcMain">순이익 계산기</a></li>
+                                <li><a href="../main/siteInfo">사이트 소개</a></li>
+                                <li><a href="">QnA</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- <%if(session.getAttribute("user_id")==null){%> -->
+                    <div class="header_right">
+                        <button type="button" id="headerBtn" onclick="location.href='../main/login' ">로그인 <span class="vP">및 회원가입</span></button>
+                    </div>
+                    <!-- <%}else{%> -->
+                    <!-- <div class="header_right">
+                        <button type="button" id="headerBtn"><%=session.getAttribute("user_id") %>님</button>
+                        <button type="button" id="headerBtn" onclick="location.href='../main/logout'">로그아웃</button>
+                    </div> -->
+                    <!-- <%} %> -->
+                </div>
+            </header>
+            <!-- //header -->
+            <div id="contents" class="contents diagnosis diagnosisMain page page-break" data-id="diagnosis">
+
+
+                <h2 class="pt-B tc">프랜차이즈 찾기</h2>
+
+                <!-- button area -->
+                <div id="titleConstraint" class="h-btn">
+                    <button id="returnSearchBtn">조건검색</button>
+                    <button id="normalSearchBtn">일반검색</button>
+                </div>
+
+                <div class="layout_wrap pt-B">
+
+                    <div class="layout_wrap_in">
+
+                        <!-- search: normal (일반검색)-->
+                        <section id="normalDiv" class="section searchBox s-search">
+                            <div class="searchArr">
+                                <select class="selbox" name="areaName" id="areaName">
+        						    <option value="" disabled>지역선택</option>
+        						    <option value="서울">서울</option>
+        						    <option value="부산">부산</option>
+        						    <option value="대구">대구</option>
+        						    <option value="인천">인천</option>
+        						    <option value="광주">광주</option>
+        						    <option value="대전">대전</option>
+        						    <option value="울산">울산</option>
+        						    <option value="세종">세종</option>
+        						    <option value="경기">경기</option>
+        						    <option value="강원">강원</option>
+        						    <option value="충북">충북</option>
+        						    <option value="충남">충남</option>
+        						    <option value="전북">전북</option>
+        						    <option value="전남">전남</option>
+        						    <option value="경북">경북</option>
+        						    <option value="경남">경남</option>
+        						    <option value="제주">제주</option>
+        						</select>
+                                <input placeholder="기업명을 입력해주세요" type="text" name="comName" value="" id="search">
+                        	    <button id="normalSearch" type="submit">찾기</button>
+                            </div>
+                            <div class="guide center-m pt-A">
+                                <div class="commentBox">
+                                    <p>정확한 기업명을 입력해주세요.</p>
+                                    <p>선택한 기업명의 <i class="fc-red">지역별 데이터</i>를 볼 수 있어요.</p>
+                                </div>
+                                <div class="imgBox">
+                                    <img src="../img/diagnosis/global_map.gif" alt="">
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- search: constraint (조건검색)-->
+                        <section id="constraintDiv" class="section searchBox s-search"><!-- Constraint 제약이라는 뜻이라함  -->
+
+                            <form method="get">
+                                <div class="guide center-m Pt0">
+                                    <div class="commentBox">
+                                        <p>각 옵션별 항목을 선택해주세요.</p>
+                                        <p>옵션에 맞는 <i class="fc-red">상위 5개 기업</i>의 <i class="fc-red">조건별 데이터</i>를 볼 수 있어요.</p>
+                                    </div>
+                                    <!-- <div class="imgBox">
+                                        <img src="../img/diagnosis/global_map.gif" alt="">
+                                    </div> -->
+                                </div>
+                                <ul id="optlist" class="optlist">
+                                    <!-- 첫번째 옵션: type(테마) -->
+                                    <li class="optlist_item optlist_type">
+                                        <h3>테마</h3>
+                                        <ul class="selboxTrigger fx">
+                                            <li class="on">
+                                                <div class="imgBox"></div>
+                                                <span class="">치킨</span>
+                                            </li>
+                                            <li>
+                                                <div class="imgBox"></div>
+                                                <span class="">피자</span>
+                                            </li>
+                                            <li>
+                                                <div class="imgBox"></div>
+                                                <span class="">주점</span>
+                                            </li>
+                                            <li>
+                                                <div class="imgBox"></div>
+                                                <span class="">커피</span>
+                                            </li>
+                                        </ul>
+                                        <select id="type" name="type" class="selbox hidden">
+                                            <option value="치킨">치킨</option>
+                                            <option value="피자">피자</option>
+                                            <option value="커피">커피</option>
+                                            <option value="주점">주점</option>
+                                        </select>
+                                    </li>
+                                    <!-- 두번째 옵션: areaName(지역) -->
+                                    <li class="optlist_item optlist_area pt-A">
+                                        <h3>지역</h3>
+                                        <ul class="selboxTrigger">
+                                            <li class="on"><span>서울</span></li>
+                                            <li><span>부산</span></li>
+                                            <li><span>대구</span></li>
+                                            <li><span>인천</span></li>
+                                            <li><span>광주</span></li>
+                                            <li><span>대전</span></li>
+                                            <li><span>울산</span></li>
+                                            <li><span>세종</span></li>
+                                            <li><span>경기</span></li>
+                                            <li><span>강원</span></li>
+                                            <li><span>충북</span></li>
+                                            <li><span>충남</span></li>
+                                            <li><span>전북</span></li>
+                                            <li><span>전남</span></li>
+                                            <li><span>경북</span></li>
+                                            <li><span>경남</span></li>
+                                            <li><span>제주</span></li>
+                                        </ul>
+                                        <select id="areaName" name="areaName" class="selbox hidden">
+                                            <option value="" disabled>지역선택</option>
+                                            <option value="서울">서울</option>
+                                            <option value="부산">부산</option>
+                                            <option value="대구">대구</option>
+                                            <option value="인천">인천</option>
+                                            <option value="광주">광주</option>
+                                            <option value="대전">대전</option>
+                                            <option value="울산">울산</option>
+                                            <option value="세종">세종</option>
+                                            <option value="경기">경기</option>
+                                            <option value="강원">강원</option>
+                                            <option value="충북">충북</option>
+                                            <option value="충남">충남</option>
+                                            <option value="전북">전북</option>
+                                            <option value="전남">전남</option>
+                                            <option value="경북">경북</option>
+                                            <option value="경남">경남</option>
+                                            <option value="제주">제주</option>
+                                        </select>
+                                    </li>
+                                    <!-- 세번째 옵션: order(정렬) -->
+                                    <li class="optlist_item optlist_order pt-A">
+                                        <h3>정렬</h3>
+                                        <ul class="selboxTrigger">
+                                            <li class="on"><span>매출높은순</span></li>
+                                            <li><span>점포많은순</span></li>
+                                        </ul>
+                                        <select id="constraint" name="constraint"  class="selbox hidden">
+                                            <option value="1">매출높은순</option>
+                                            <option value="2">점포많은순</option>
+                                        </select>
+                                    </li>
+                                </ul>
+                                <div class="center-f pt-B">
+                                    <button type="button" id="searchBtn">선택완료</button>
+                                </div>
+                            </form>
+                        </section>
+
+                        <section>
+                            <form>
+                                <table style="height: auto;" id="comNameList">
+                                    <!-- 검색한 결과값이 담길 테이블 -->
+                                </table>
+                            </form>
+                        </section>
+                    </div>
+
+                </div>
+                <!-- //layout_wrap -->
+            </div>
+            <!-- //contents -->
+
+            <script>
+            $(document).ready(function(){
+                //$("#returnSearchBtn").hide(); 	// 돌아갈래요 버튼 첨엔 안보임
+                $("#normalDiv").hide();		// 그냥 검색하는인풋태그div 숨김
+                // 일반 검색할래요 클릭시
+                $("#normalSearchBtn").on("click",function(e){
+                    $("#constraintDiv").hide();	// 조건검색창 숨기기
+                    $("#comNameList").hide();	// 조건검색 결과창 숨기기
+                    //$("#returnSearchBtn").show();	// 돌아갈래요 버튼 보이기
+                    $("#normalDiv").show();		//일반검색 인풋태그div 보이게
+                });
+                // 조건검색 버튼 클릭시
+                $("#returnSearchBtn").on("click",function(e){
+                    $("#constraintDiv").show(); // 조건검색창 보이기
+                    $("#comNameList").hide(); 	// 조건검색 결과창 보이기
+                    //$("#normalSearchBtn").show();	// 일반검색 버튼 보이기
+                    $("#normalDiv").hide();		//일반검색 인풋태그div 숨김
+                });
+
+                // 검색 버튼 클릭시
+                $("#searchBtn").on("click",function(e){
+                    $("#comNameList").show();
+                    let type = $("#type").val();
+                    let areaName = $("#areaName").val();
+                    let constraint = $("#constraint").val();
+                    let comNameListDiv = $("#comNameList");
+                    console.log("type : " +type);
+                    console.log("areaName : " +areaName);
+                    console.log("constraint : " +constraint);
+                    $.ajax({
+                        type: "GET",
+                        url: "/search/searchDataConstraint",
+                        data: {"type" : type,"areaName" : areaName,"constraint" : constraint},
+                        contentType: "application/json;charset=utf-8",
+                        success: function(result){
+                            console.log("요청 성공!!!!!");
+                            console.log(result);
+                            console.log(result.length);
+                            let str= "";
+                            //str += "<tr><td><a> 검색된 결과 수 : "+result.length +"</a></td></tr>";
+                            str += "<tr><td><a> 상위 프랜차이즈 5곳</a></td></tr>";
+                            for(let i = 0; i < 5; i++){ //result.length 일단 5개까지만
+
+                                str+= "<tr><td>"+ result[i].l_comName +"</td><td>";
+                                str+= "<label class='agree fx alc'>";	// 수정한거
+                                str+= "<input type='checkbox' value='"+ result[i].l_comName +"' class='resultBtn' id='"+ result[i].l_comName +"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
+                            }
+                            str +="<td><input type='text' name='comName' class='inputTrigger' readonly><button type='button' onclick='targetFunction();'>(으)로 상세검색</button></td>";
+                            comNameListDiv.html(str); // table에 tr td 넣기
+
+                        },
+                        error: function(e) {
+                            console.log("요청 에러......");
+                            console.log(e);
+                            str += "<tr><td><a> 검색된 결과가 없습니다</a></td></tr>";
+                            comNameListDiv.html(str); // table에 tr td 넣기
+                        }
+                    }); //ajax
+                });// $("#searchBtn") 서치버튼 클릭시 !
+                $("#normalSearch").on("click",function(e){
+                    $("#comNameList").show();
+                    console.log("들어옴");
+                    let search = $("#search").val();
+                    let comNameListDiv = $("#comNameList");
+                    console.log("서치한거 : "+search); // 여기까지 담김
+
+                        $.ajax({
+                            type: "GET",
+                            url: "/search/searchData",
+                            data: {"comName" : $("#search").val() },
+                            contentType: "application/json;charset=utf-8",
+                            success: function(result){
+                                console.log("요청 성공!!!!!");
+                                console.log(result);
+                                console.log(result.length);
+                                let str= "";
+                                str += "<tr><td><span class='commentBox'> 검색된 결과 수 : "+result.length +"</span></td></tr>";
+                                for(let i = 0; i < result.length; i++){ //result.length 일단 5개까지만
+
+                                    str+= "<tr><td>"+ result[i].s_comName +"</td><td>";
+                                    str+= "<label class='agree fx alc je' id='"+ result[i].s_comName +"'>";
+                                    str+= "<input type='checkbox' value='"+ result[i].s_comName +"' class='resultBtn' id='"+ result[i].s_comName +"' name='"+result[i].s_comName+"'onclick='clickCheck(this)''><span class='chkbox'></span></label></td></tr>";
+                                }
+                                    //str +="<td><input type='text' name='comName' class='inputTrigger'><button type='button' id='detail'>(으)로 상세검색</button></td>";
+                                    str +="<td><input type='text' name='comName' class='inputTrigger' readonly><button type='button' onclick='targetFunction();'>(으)로 상세검색</button></td>";
+                                comNameListDiv.html(str); // table에 tr td 넣기
+
+                            },
+                            error: function(e) {
+                                console.log("요청 에러......");
+                                console.log(e);
+                                str += "<tr><td><a> 검색된 결과가 없습니다</a></td></tr>";
+                                comNameListDiv.html(str); // table에 tr td 넣기
+                            }
+                        }); //ajax
+                });// $("#normalSearch")
+
+                // 각 select option 대신 새로 만든 요소를 클릭해도 옵션이 선택되는 것처럼 동작
+                $('.selboxTrigger li').on('click',function(){
+                    // select option 변경
+                    $(this).closest('.optlist_item').find('.selbox').val($(this).find('span').text());
+                    // 클릭한 요소로 border-color 변경
+                    $(this).removeClass('on');
+                    $(this).siblings('li').removeClass('on');
+                    $(this).addClass('on');
+                });
+
+            });//$(document). 시작부분
+            function clickCheck(target) { // 체크박스 여러개 체크하지 않게 !!! onclick 이벤트
+                document.querySelectorAll(`input[type=checkbox]`)
+                    .forEach(el => el.checked = false);
+                target.checked = true;
+                console.log("이벤트실행");
+                if(event.target.checked)  {
+                    let result = event.target.value;
+                    let areaName = $("#areaName").val();
+                    console.log(result);
+                    $('input[name=comName').attr('value',result);
+                    //window.location='../diagnosis/diagnosisResult?comName='+result+'&areaName='+areaName; // 체크박스 클릭시 바로 페이지이동
+                }
+            }
+            function targetFunction() {
+                let areaName = $("#areaName").val();
+                let comName = $(".inputTrigger").val();
+                console.log("areaName : " + areaName);
+                console.log("comName : " + comName);
+                window.location='../diagnosis/diagnosisResult?comName='+comName+'&areaName='+areaName;
+            }
+            </script>
+            <!-- ======================================== -->
+            <!-- footer -->
+            <footer id="footer" class="footer">
+                <div class="footer_wrap layout_wrap Hmax">
+                    <div class="footer_left fx">
+                        <div class="footer_img">
+                            <img src="../img/common/logoH_tree.png" alt="footer logo">
+                        </div>
+                        <address class="address">
+                            <span>대표자 : Double J</span>
+                            <span>주소 : 서울특별시 마포구 신촌로 94, 7층(702호)</span>
+                        </address>
+                    </div>
+                    <div class="footer_right">
+                        <a href="tel:02-716-1006" class="fx alc">
+                            <div class="cs_img">
+                                <img src="../img/common/call.png" alt="고객센터">
+                            </div>
+                            <div class="cs_txt">
+                                고객센터<br>
+                                02.716.1006
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+            <div class="mini-footer">
+                <p>이 데이터는 창업나무에서 출력된 자료입니다.</p>
+                <p>실제 창업 조건과 운영 환경에 따라 오차가 발생할 수 있습니다.</p>
+            </div>
+            <div class="overlay"></div>
+            <!-- //footer -->
+        </div>
+        <!-- //container -->
+    </div>
+    <!-- //wrap -->
+</body>
+</html>

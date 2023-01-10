@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+    <title>창업나무</title>
+
+    <!-- <link rel="icon" href="/{=favicon}" -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../css/main.css?v=<?=time()?>">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script defer src="../js/common.js"></script>
+
+    <!-- <script src="https://www.youtube.com/player_api"></script> -->
+
+
+</head>
+<!-- ============================================================================= -->
+<!-- ============================================================================= -->
+
+<!-- 마우스드래그금지 -->
+<!-- <body ondragstart="return false" onselectstart="return false"> -->
+
+<body>
+    <h1 id="Homepage" class="bld">창업나무 홈페이지</h1>
+    <!-- wrap -->
+    <div id="wrap">
+        <!-- container -->
+        <div id="container">
+            <!-- ======================================== -->
+            <!-- header -->
+            <header id="header" class="header">
+                <div class="header_wrap layout_wrap">
+                    <div class="header_left">
+                        <div class="header_logo">
+                            <a href="">
+                                <img src="../img/common/logo.png" alt="창업나무">
+                            </a>
+                        </div>
+                        <nav class="nav center-t">
+                            <ul id="gnb" class="gnb">
+                                <li><a href="">홈</a></li>
+                                <li class="depth">
+                                    <a href="">프렌차이즈 정보</a>
+                                    <div>
+                                        <ul class="fx">
+                                            <li><a href="#">기업평점/리뷰</a></li>
+                                            <li><a href="#">순위</a></li>
+                                            <li><a href="#">분석기</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="">예상매출 계산기</a></li>
+                                <li><a href="">사이트 소개</a></li>
+                                <li><a href="">QnA</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header_right">
+                        <button type="button" id="headerBtn">로그인 및 회원가입</button>
+                    </div>
+                </div>
+            </header>
+            <!-- //header -->
+
+            <!-- ======================================== -->
+            <!-- contents -->
+            <div id="contents" class="contents reviewSearch page" data-id="reviewSearch">
+
+                <section class="section s-search">
+                    <div class="layout_wrap pt-B">
+                        <div class="countBox center-f">
+                            <div class="imgBox">
+                                <img src="../img/review/map_pin.gif" alt="">
+                            </div>
+                            <div class="txtBox">
+                                <span>등록되어있는 <br>
+                                    브랜드 수 : <b>800</b></span>
+                            </div>
+                        </div>
+                        <div class="searchBox">
+                            <form action="/franchise/reviewSearch" method="get" class="fx jsb alc pb-A">
+                                <select id="comSel" class="comSel designSel" name="comSel">
+                                    <option value="all" selected>전체</option>
+                                    <option value="chicken">치킨</option>
+                                    <option value="pizza">피자</option>
+                                </select>
+                                <input type="search" id="comName" name="comName" value="${comName}" placeholder="브랜드명을 입력해보세요.">
+                                <button type="submit" id="search">검색</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- review search -->
+                <section class="section s-reviewSearch">
+                    <div class="layout_wrap center-f fdc">
+                        <h2 class="pb-B fwn">
+                            <b class="fc-light">${paging.comName} </b>(으)로 검색한 결과입니다.
+                        </h2>
+                        <div class="brandlist">
+                            <table>
+                                <tr class="thead">
+                                    <th class="name tc">상호명</th>
+                                    <th class="ave">별점</th>
+                                </tr>
+                                <c:forEach var="comNameList" items="${resultList}" varStatus="status">
+                                    <!-- <tr>
+                                        <td>
+                                            ${comNameList.s_comName }
+                                        </td>
+                                        <td class="center-f">
+                                            <span>
+                                                <img src="../img/review/star.png" alt="별">
+                                                ${comNameList.starAvg }
+                                            </span>
+                                        </td>
+                                    </tr> -->
+                                    <tr>
+                                        <td>
+                                            치킨마루
+                                        </td>
+                                        <td class="center-f">
+                                            <span>
+                                                <img src="../img/review/star.png" alt="별">
+                                                3.2
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            치킨마루
+                                        </td>
+                                        <td class="center-f">
+                                            <span>
+                                                <img src="../img/review/star.png" alt="별">
+                                                3.2
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            치킨마루
+                                        </td>
+                                        <td class="center-f">
+                                            <span>
+                                                <img src="../img/review/star.png" alt="별">
+                                                3.2
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            치킨마루
+                                        </td>
+                                        <td class="center-f">
+                                            <span>
+                                                <img src="../img/review/star.png" alt="별">
+                                                3.2
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            치킨마루
+                                        </td>
+                                        <td class="center-f">
+                                            <span>
+                                                <img src="../img/review/star.png" alt="별">
+                                                3.2
+                                            </span>
+                                        </td>
+                                    </tr>
+
+
+                                </c:forEach>
+                            </table>
+
+                            <div class="pagination tc">
+                                <c:if test="${paging.startPage != 1 }">
+                                    <a href="/franchise/reviewSearch?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}&comName=${paging.comName}">
+                                        &lt;
+                                    </a>
+                                </c:if>
+                                <c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+                                    <c:choose>
+                                        <c:when test="${p == paging.nowPage }">
+                                            <b>${p }</b>
+                                        </c:when>
+                                        <c:when test="${p != paging.nowPage }">
+                                            <a href="/franchise/reviewSearch?nowPage=${p }&cntPerPage=${paging.cntPerPage}&comName=${paging.comName}">${p }</a>
+                                        </c:when>
+                                    </c:choose>
+                                </c:forEach>
+                                <c:if test="${paging.endPage != paging.lastPage}">
+                                    <a href="/franchise/reviewSearch?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&comName=${paging.comName}" class="next">&gt;</a>
+                                </c:if>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+            <!-- //contents -->
+
+            <!-- ======================================== -->
+            <!-- footer -->
+            <footer id="footer" class="footer">
+                <div class="footer_wrap layout_wrap Hmax">
+                    <div class="footer_left fx">
+                        <div class="footer_img">
+                            <img src="../img/common/logoH_tree.png" alt="footer logo">
+                        </div>
+                        <address class="address">
+                            <span>대표자 : Double J</span>
+                            <span>주소 : 서울특별시 마포구 신촌로 94, 7층(702호)</span>
+                        </address>
+                    </div>
+                    <div class="footer_right">
+                        <a href="tel:02-716-1006" class="fx alc">
+                            <div class="cs_img">
+                                <img src="../img/common/call.png" alt="고객센터">
+                            </div>
+                            <div class="cs_txt">
+                                고객센터<br>
+                                02.716.1006
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+            <!-- //footer -->
+        </div>
+        <!-- //container -->
+    </div>
+    <!-- //wrap -->
+</body>

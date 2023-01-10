@@ -1,0 +1,177 @@
+/* ======================= */
+/* header */
+/* ======================= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: var(--headerH);
+    background-color: var(--green);
+}
+
+.header_wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* header logo */
+.header_logo {
+    width: 100px;
+}
+
+.header_left {
+    display: flex;
+    min-width: calc(100% - 7.4% - 170px);
+    /* 48px = 3.75% */
+}
+
+/* menu */
+.nav {
+    padding: 0 4.687%;
+}
+
+.gnb {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.gnb>li {
+    padding: 1rem 1.2rem;
+}
+
+.gnb li a {
+    position: relative;
+    /* prt */
+    display: inline-block;
+    font-weight: bold;
+    color: #fff;
+}
+
+.gnb>li>a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 150%;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--light);
+    transition: all .2s ease-in-out;
+}
+
+.gnb>li:hover>a::after {
+    width: 100%;
+}
+
+.gnb li.depth>div {
+    display: none;
+    position: absolute;
+    top: 80px;
+    font-size: 1.2rem;
+}
+
+/* .gnb li.depth:hover > div{
+    display: block;
+} */
+.gnb .depth li+li {
+    margin-left: 2rem;
+}
+
+/* login & join */
+.header_right {
+    display: flex;
+    align-items: center;
+}
+
+.header_right button {
+    width: 17rem;
+    /* height: 4.5rem; */
+    border-radius: 2rem;
+    border: none;
+}
+
+.header_right button:hover {
+    font-weight: bold;
+    background-color: var(--light);
+    box-shadow: inset 0 0 2px #000;
+}
+
+/* ======================= */
+/* footer */
+/* ======================= */
+.footer {
+    width: 100%;
+    height: var(--footerH);
+    font-size: 1.2rem;
+    border-top: 1px solid #707070;
+}
+
+.footer_wrap {
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer_img {
+    width: 42px;
+    filter: grayscale(1);
+}
+
+/* info */
+.address {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.8rem;
+}
+
+.address span+span {
+    padding-top: 5px;
+}
+
+/* customer center */
+.cs_img {
+    width: 40px;
+    padding-right: 8px;
+}
+
+/* ======================= */
+/* review main */
+/* ======================= */
+.reviewMain .s-search{
+    background-color: #d0d0d0;
+}
+.reviewMain .s-search>div{
+    max-width: 500px;
+}
+.reviewMain .s-search{
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+}
+.reviewMain .countBox{
+    margin: 0 auto;
+}
+.reviewMain .countBox .txtBox{
+    padding-left: 2rem;
+}
+.reviewMain .countBox .imgBox{
+    max-width: 175px;
+}
+.reviewMain .searchBox{
+    padding-top: 3rem;
+}
+.reviewMain #comSel{
+    width: 23%;
+
+}
+.reviewMain #comName{
+    width: 55%;
+}
+.reviewMain #search{
+    width: 20%;
+}
+.reviewMain .slide{
+
+}

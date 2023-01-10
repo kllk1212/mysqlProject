@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="com.projectJ.persistence.DiagnosisMapper">
+	
+	<!-- 지역 선택 / 테마(치킨) 선택 후 매출순으로 정렬해서 가져오기  -->
+	<select id="searchResultAjaxSales" resultType="com.projectJ.domain.LocalSalesDTO">
+		select * from localSales where l_type=#{type} and l_areaName=#{areaName} order by l_avgsales desc
+	</select>
+	<!-- 지역 선택 / 테마(치킨) 선택 후 매장많은순으로 정렬해서 가져오기 -->
+	<select id="searchResultAjaxEa" resultType="com.projectJ.domain.LocalSalesDTO">
+		select * from localSales where l_type=#{type} and l_areaName=#{areaName} order by l_franchiseeEa desc
+	</select>
+	<!-- 회사명 입력 후 입력한 회사의 companyInfo(회사기본) 정보 가져오기 -->
+	<select id="companyInfoOne" resultType="com.projectJ.domain.CompanyDTO">
+		select * from companyInfo where c_comName=#{comName} and rownum =1
+	</select>
+	<!-- 회사명 입력 / 지역 선택 후  입력한 회사의 localSales(지역매출) 정보 가져오기 -->
+	<select id="localSalesOne" resultType="com.projectJ.domain.LocalSalesDTO">
+		select * from localSales where l_comName=#{comName} and l_areaname=#{areaName} and rownum =1
+	</select>
+	<!-- 회사명 입력 / 지역 선택 후  입력한 회사의 franchiseeStatus(각지역점포수) 정보 가져오기 -->
+	<select id="franchiseeStatusOne" resultType="com.projectJ.domain.FranchiseeStatusDTO">
+		select * from franchiseeStatus where f_comName=#{comName} and f_areaname=#{areaName} and rownum =1
+	</select>	
+	<!-- 2021년 기준 지역/테마 선택 후 동종업종 매장수 가져오기 -->
+	<select id="allFchaEA" resultType="int"> 
+		select sum(l_franchiseeEa) from localSales where l_type=#{type} and l_areaName=#{areaName} and l_year='2021년'
+	</select>
+	<!-- 지역 / 테마 선택 후 평균 매출 구해오기 -->
+	<select id="avgSales" resultType="int">
+		select TRUNC(avg(l_avgSales/100),0) from localSales where l_areaName=#{areaName} and l_type=#{type} and l_avgSales>0
+	</select>
+	<!-- 전국의 테마(치킨) 평균 매출 구해오기 -->
+	<select id="avgSalesAll" resultType="int">
+		select TRUNC(avg(l_avgSales/100),0) from localSales where l_type=#{type} and l_avgSales>0
+	</select>
+
+
+
+
+
+	<!-- 별점 정보
+	<select id="starInfoOne" resultType="com.projectJ.domain.StarInfoDTO">
+		select * from starInfo where s_comName=#{comName}
+	</select>
+	<select id="starUserOne" resultType="com.projectJ.domain.StarUserDTO">
+		select * from starUser where s_comName=#{comName}
+	</select>
+	  -->
+
+
+
+
+
+</mapper>

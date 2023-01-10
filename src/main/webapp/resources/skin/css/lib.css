@@ -1,0 +1,128 @@
+/* ========================= lib (S) =========================== */
+/* display */
+.dn{display: none;}
+.dn-i{display: none !important;}
+
+.db{display: block;}
+.db-i{display: block !important;}
+
+.dib{display: inline-block;}
+.dib-i{display: inline-block !important;}
+
+.ofh{overflow: hidden !important;}
+
+.hidden{overflow:hidden; position:absolute; top:-9999px; left:-9999px; visibility:hidden; width:0; height:0; margin:0; font-size:0; text-indent:-9999px; line-height:0; z-index:-9999;}
+
+.bld{position: absolute; text-indent:-9999px; overflow:hidden; font-size:0; line-height:0;}
+
+/* position */
+.pr{position:relative !important;}
+
+/* padding */
+.P0{padding: 0 !important;}
+.Pl0{padding-left: 0 !important;}
+.Pr0{padding-right: 0 !important;}
+.Pt0{padding-top: 0 !important;}
+.Pb0{padding-bottom: 0 !important;}
+
+/* margin */
+.M0{margin: 0 !important;}
+.Ml0{margin-left: 0 !important;}
+.Mr0{margin-right: 0 !important;}
+.Mt0{margin-top: 0 !important;}
+.Mb0{margin-bottom: 0 !important;}
+
+/* flex */
+.fx{display:flex;}
+.fdr{flex-direction: row;}
+.fdc{flex-direction: column;}
+.alc{align-items:center;}
+.ale{align-items:end;}
+.jc{justify-content:center;}
+.je{justify-content:end;}
+.jsb{justify-content:space-between;}
+
+/* float */
+.fl{float:left !important;}
+.fr{float:right !important;}
+
+/* text-align */
+.tc{text-align:center !important;}
+.tl{text-align:left !important;}
+.tr{text-align:right !important;}
+.tc-i{text-align:center !important;}
+.tl-i{text-align:left !important;}
+.tr-i{text-align:right !important;}
+
+/* font-weight */
+.fwl{font-weight: lighter !important;}
+.fwn{font-weight: normal !important;}
+.fwb{font-weight: bold !important;}
+
+/* border */
+.btx{border-top:none !important;}
+.bbx{border-bottom:none !important;}
+
+/* cursor */
+.hand{cursor:pointer;}
+
+/* width/height */
+.Wmax{width: 100% !important;}
+.Hmax{height: 100% !important;}
+.WHmax {width: 100%; height: 100%;}
+
+/* preline */
+.pre {white-space: pre-line;}
+
+/* clear */
+.clb{clear: both;}
+
+/* center */
+.center-m{margin: 0 auto;}
+
+.center-t{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.center-f{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* overflow hidden All */
+.nonScroll{
+    touch-action: none;
+    -webkit-overflow-scrolling: none;
+    overflow: hidden;
+    /* 이외의 브라우저 */
+    overscroll-behavior: none;
+}
+
+/* close */
+button.close{
+    display: inline-block;
+}
+button.close::after{
+    content: "\00d7";
+    display: inline-block;
+    font-size: 16px;
+}
+
+/* img ratio box */
+img{
+    max-width: 100%;
+}
+.img_r {
+    position: relative;
+}
+
+.img_r::after {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+/* ========================= lib (E) =========================== */

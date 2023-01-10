@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="com.projectJ.persistence.FranchiseMapper">
+	
+
+<select id="searchResult" resultType="com.projectJ.domain.StarInfoDTO">
+select s_comName,trunc((s_5point*5+s_4point*4+s_3point*3+s_2point*2+s_1point*1)/(s_5point+s_4point+s_3point+s_2point+s_1point),2) starAvg
+from starinfo where s_comname like '%'||#{comName}||'%'
+</select>
+
+<!-- 회사명 입력시 비슷한 검색어 결과(회사명-starInfo테이블) 정보 가져오기 -->
+<select id="searchResultAjax" resultType="com.projectJ.domain.StarInfoDTO">
+<!-- 오라클 
+	select * from starInfo where upper(s_comname) like upper('%'||#{comName}||'%') 
+ -->
+ 	<!-- mysql -->
+ 	<![CDATA[
+	select * from starInfo where upper(s_comname) like UPPER(#{comName})
+	]]> 
+</select>
+
+<select id="searchResult2" resultType="com.projectJ.domain.ReviewSearchDTO">
+	select s.s_comName, c.c_comimg,(s.s_5point*5+s.s_4point*4+s.s_3point*3+s.s_2point*2+s.s_1point*1)/(s.s_5point+s.s_4point+s.s_3point+s.s_2point+s.s_5point) 
+from companyInfo c, starInfo s 
+where c.c_comName=s.s_comName and c.c_comName like '%'||#{comName}||'%'
+</select>
+
+<!-- 리뷰기능만 시작 -->
+<select id="countSearch" resultType="int">
+<!-- select count(*) from starinfo where s_comname like '%'||#{comName}||'%'  대소문자구분x버전-->
+	select count(*) from starinfo where upper(s_comname) like upper('%'||#{comName}||'%')
+</select>
+<!-- 대소문자변환 -->
+<select id="searchResultTest" resultType="com.projectJ.domain.StarInfoDTO">
+	SELECT * FROM (SELECT ROWNUM RN, A.* FROM (
+select s_comName,trunc((s_5point*5+s_4point*4+s_3point*3+s_2point*2+s_1point*1)/(s_5point+s_4point+s_3point+s_2point+s_1point),2) starAvg
+from starinfo where upper(s_comname) like upper('%'||#{comName}||'%')) A) WHERE RN BETWEEN #{start} AND #{end}
+</select>
+<select id="starInfoRead" resultType="com.projectJ.domain.StarInfoDTO">
+	select * from starInfo where s_comName=#{comName}
+</select>
+<select id="starAvg" resultType="double">
+	select trunc((s_5point*5+s_4point*4+s_3point*3+s_2point*2+s_1point*1)/(s_5point+s_4point+s_3point+s_2point+s_1point),2)
+from starinfo where s_comname=#{comName}
+
+</select>
+<select id="starCount" resultType="int">
+	select s_5point+s_4point+s_3point+s_2point+s_1point from starinfo where s_comname=#{comName}
+</select>
+
+
+<select id="starWriteCheck" resultType="int">
+	select count(*) from starUser where s_comName=#{s_comName} and s_id=#{s_id}
+</select>
+<insert id="insertStarReview">
+	insert into starUser values(#{s_comTitle},#{s_comName},#{s_id},#{s_savePoint},#{s_comment},sysdate)
+</insert>
+
+<update id="starPointPlus1">
+	update starinfo set s_1point=s_1point+1 where s_comName=#{comName}
+</update>
+<update id="starPointPlus2">
+	update starinfo set s_2point+1 where s_comName=#{comName}
+</update>
+<update id="starPointPlus3">
+	update starinfo set s_3point+1 where s_comName=#{comName}
+</update>
+<update id="starPointPlus4">
+	update starinfo set s_4point+1 where s_comName=#{comName}
+</update>
+<update id="starPointPlus5">
+	update starinfo set s_5point+1 where s_comName=#{comName}
+</update>
+
+
+<!-- 리뷰기능만 끝-->
+
+
+<!-- 계산기 기능 시작 -->
+
+<select id="getCalcDB" resultType="com.projectJ.domain.LocalSalesDTO">
+	select * from localSales where l_comName=#{comName} and l_areaName=#{areaName}
+</select>
+
+<select id="getIncomeCalcDB" resultType="com.projectJ.domain.IncomeCalcDataDTO">
+	select * from incomeCalcData where i_type=#{type}
+</select>
+
+
+
+
+
+
+
+</mapper>

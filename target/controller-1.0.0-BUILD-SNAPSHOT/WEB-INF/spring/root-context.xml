@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	https://www.springframework.org/schema/beans/spring-beans.xsd
+	http://mybatis.org/schema/mybatis-spring 
+	http://mybatis.org/schema/mybatis-spring-1.2.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-4.3.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 커넥션 풀 세팅  -->
+	<!-- 
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.9:1521:ORCL" />
+		<property name="username" value="system" />
+		<property name="password" value="java11" />
+	</bean>
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
+	 -->
+    <!-- MySQL dataSource -->
+    <bean id="dataSource"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+        <!-- 
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+         -->
+        
+        <property name="url" value="jdbc:log4jdbc:mysql://211.47.75.102:3306/dbkllk1212?useSSL=false&amp;serverTimezone=UTC">
+        </property>
+        <property name="username" value="kllk1212"></property>
+        <property name="password" value="dlwogns9494!"></property>
+    </bean>        	
+	<!--  MyBatis 연동 설정  -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- Mapper 스캔하도록 설정 -->
+	
+	<mybatis-spring:scan base-package="com.projectJ.persistence"/>
+	<mybatis-spring:scan base-package="com.crawling.persistence"/>
+	<!--
+	<mybatis-spring:scan base-package="com.crawling.persistence"/>  -->
+	
+	<!-- @Service 붙은 클래스들 빈으로 등록하도록 스캔  -->
+	<context:component-scan base-package="com.projectJ.service" />
+	<!--
+	<context:component-scan base-package="com.crawling.service" />  -->
+	
+	
+	
+	<!--  aop 어노테이션 설정  -->
+	<!-- 해당 패키지 안의 @Component 어노테이션 붙은 클래스 스프링빈으로 등록 -->
+	<context:component-scan base-package="com.projectTest.aop" />
+	<aop:aspectj-autoproxy />
+			
+</beans>

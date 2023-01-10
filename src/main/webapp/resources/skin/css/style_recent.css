@@ -1,0 +1,51 @@
+button.turnBtn{background-color:gray;}
+button.turnBtn.leeActive{background-color:var(--blue);}
+body {
+    font-weight: bold;
+}
+
+.admin_1 .inwrap{
+	width: 50%;
+}
+.admin_section h2{
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.admin_section #search{
+	width:calc(100% - 80px);
+}
+
+.admin_section .theme{
+    margin: 30px auto 0;
+    width: 500px;
+    text-align: center;
+    position: relative;
+}
+.admin_1 .inwrap.first{
+   border-right: 1px solid #ddd;
+}
+.admin_section .theme tr{
+	height: 5rem;
+}
+.admin_section .theme .title{
+	border-bottom: 1px solid #707070;
+}
+
+.crolling tr{
+	height: 3rem;
+}
+
+
+.calcMain .outerWrap h3 span{
+	display: inline-block;
+	max-width: 100%;
+}
+
+.calcMain #getResultSalesForm .list_name{
+	align-items: start;
+}
+
+.commentBox p{
+    display: flex;
+}

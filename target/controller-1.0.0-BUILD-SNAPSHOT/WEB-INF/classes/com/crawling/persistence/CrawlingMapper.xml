@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crawling.persistence.CrawlingMapper">
+
+	<insert id="insert">
+		insert into companyInfo(c_comNo, c_comTitle ,c_comName,c_type,c_storeCount,c_memberFee,c_eduFee,c_deposit,c_etcFee,c_totalFee,c_tAvgSales,c_tSquareSales,c_comBoss,c_comBm,c_comAddr,c_comNum) 
+		values(#{c_comNo },#{c_comTitle}, #{c_comName },#{ c_type},#{c_storeCount },#{c_memberFee },#{ c_eduFee},#{c_deposit },#{c_etcFee },#{c_totalFee },#{c_tAvgSales },#{c_tSquareSales },#{c_comBoss},#{c_comBm},#{c_comAddr},#{c_comNum})
+	</insert>
+
+	<insert id="insertLocalSales">
+		insert into localSales(l_year, l_comName,l_areaName,l_franchiseeEa,l_avgSales,l_areaAvgSales,l_type) values(#{l_year },#{ l_comName},#{l_areaName },#{l_franchiseeEa },#{l_avgSales},#{l_areaAvgSales },#{l_type})
+	</insert>
+	
+	<insert id="insertFranchiseeStatus">
+		insert into franchiseeStatus(f_areaName,f_year,f_comName,f_totalEa,f_franchiseeEa,f_directEa,f_type) values(#{f_areaName },#{f_year},#{ f_comName},#{f_totalEa },#{f_franchiseeEa },#{f_directEa },#{f_type})
+	</insert>
+	
+	<insert id="inserStarInfo">
+		insert into starInfo(s_comTitle,s_comName) values(#{s_comTitle},#{s_comName})
+	</insert>
+	<!-- 테스트 테이블 4개  -->
+	<insert id="insertTest">
+		insert into companyInfo(c_comNo, c_comTitle ,c_comName,c_type,c_storeCount,c_memberFee,c_eduFee,c_deposit,c_etcFee,c_totalFee,c_tAvgSales,c_tSquareSales,c_comBoss,c_comBm,c_comAddr,c_comNum) 
+		values(#{c_comNo },#{c_comTitle}, #{c_comName },#{ c_type},#{c_storeCount },#{c_memberFee },#{ c_eduFee},#{c_deposit },#{c_etcFee },#{c_totalFee },#{c_tAvgSales },#{c_tSquareSales },#{c_comBoss},#{c_comBm},#{c_comAddr},#{c_comNum})
+	</insert>
+
+	<insert id="insertLocalSalesTest">
+		insert into localSales(l_year, l_comName,l_areaName,l_franchiseeEa,l_avgSales,l_areaAvgSales,l_type) values(#{l_year },#{ l_comName},#{l_areaName },#{l_franchiseeEa },#{l_avgSales},#{l_areaAvgSales },#{l_type})
+	</insert>
+	
+	<insert id="insertFranchiseeStatusTest">
+		insert into franchiseeStatus(f_areaName,f_year,f_comName,f_totalEa,f_franchiseeEa,f_directEa,f_type) values(#{f_areaName },#{f_year},#{ f_comName},#{f_totalEa },#{f_franchiseeEa },#{f_directEa },#{f_type})
+	</insert>
+	
+	<insert id="inserStarInfoTest">
+		insert into starInfo(s_comTitle,s_comName) values(#{s_comTitle},#{s_comName})
+	</insert>
+	<!-- 테스트 테이블 4개   끝-->
+	
+	<!-- 탭/띄어쓰기/줄바꿈 삭제 12개 기능 -->
+	<update id="deleteTapCompanyInfo">
+		update companyInfo set c_comName = replace(replace(c_comName,char(10),''),char(13),'')
+	</update>
+	<update id="deleteTapLocalSales">
+		update localSales set l_comname = replace(replace(l_comname,char(10),''),char(13),'')
+	</update>
+	<update id="deleteTapFranchiseeStatus">
+		update franchiseeStatus set f_comname = replace(replace(f_comname,char(10),''),char(13),'')
+	</update>
+	<update id="deleteTapStarinfo">
+		update starinfo set s_comname = replace(replace(s_comname,char(10),''),char(13),'')
+	</update>
+
+	<update id="deleteEnterCompanyInfo">
+		update companyInfo set c_comName = replace(c_comName,char(9),'')
+	</update>
+	<update id="deleteEnterTapLocalSales">
+		update localSales set l_comname = replace(l_comname,char(9),'')
+	</update>
+	<update id="deleteEnterFranchiseeStatus">
+		update franchiseeStatus set f_comname = replace(f_comname,char(9),'')
+	</update>
+	<update id="deleteEnterStarinfo">
+		update starinfo set s_comname = replace(s_comname,char(9),'')
+	</update>
+	<update id="deleteSpaceCompanyInfo">
+		update companyInfo set c_comName = replace(c_comName,' ','')
+	</update>
+	<update id="deleteSpaceTapLocalSales">
+		update localSales set l_comname = replace(l_comName,' ','')
+	</update>
+	<update id="deleteSpaceFranchiseeStatus">
+		update franchiseeStatus set f_comname = replace(f_comname,' ','')
+	</update>
+	<update id="deleteSpaceStarinfo">
+		update starinfo set s_comname = replace(s_comName,' ','')
+	</update>
+	<!-- 탭/띄어쓰기/줄바꿈 삭제 12개 기능 end-->
+
+
+</mapper>

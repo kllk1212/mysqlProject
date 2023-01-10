@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="com.projectJ.persistence.LoginMapper">
+
+<insert id="insertUserData">
+	insert into memberInfo(m_idx,m_id, m_pw, m_email, m_phone, m_ping, m_failCnt, m_regDate, m_fixDate, m_lastDate, m_status) 
+	values(last_insert_id()+1,#{m_id},#{m_pw},#{m_email},#{m_phone},#{m_ping},0,now(),now(),now(),1)
+</insert>
+
+</mapper>
