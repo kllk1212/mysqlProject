@@ -1,6 +1,7 @@
 $(function(){
 
 	communication = new Communication();
+
 	
     // ============================================================
     // ============ Header ========================================
@@ -59,10 +60,22 @@ $(function(){
 	}); //$("#loginBtn")
 	$("#logoutBtn").on("click",function(e){
 		console.log("로그아웃 쿠키삭제");
-		setTimeout("window.location = 'main'", 1000);
+		deleteAllCookies();
 		document.cookie = 'token=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
+		setTimeout("window.location = 'main'", 1000);
+		
 	});
-	
+	function deleteAllCookies() {
+	    var cookies = document.cookie.split(";");
+		console.log("쿠키삭제");
+		console.log(cookies);
+	    for (var i = 0; i < cookies.length; i++) {
+	        var cookie = cookies[i];
+	        var eqPos = cookie.indexOf("=");
+	        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+	        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+	    }
+	}		
 
 
     // ============================================================

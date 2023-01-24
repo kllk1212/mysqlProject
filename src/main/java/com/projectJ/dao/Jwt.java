@@ -64,7 +64,7 @@ public class Jwt {
 
 		String jwt = null; // 리턴값 선언
 		Date date = new Date(); // accessToken 에 넣을 시간 생성
-		long time = date.getTime()/1000 + 6000;
+		long time = date.getTime()/1000 + 3600;
 		
 		try {
 			Map<String, Object> payloadData = new LinkedHashMap();
