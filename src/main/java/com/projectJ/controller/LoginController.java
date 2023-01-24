@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -102,5 +103,19 @@ public class LoginController {
 		return mav;
 	}
 	
+	@PostMapping("mypage")
+	public ModelAndView mypageGet(@RequestParam String token) {
+		ModelAndView mav = new ModelAndView("jsonView");
+		System.out.println("token : " + token);
+		String decrypt = dao.decrypt(token);
+		System.out.println("decrypt : " + decrypt);
+		JSONObject json = new JSONObject(decrypt);
+		System.out.println("json : " + json);
+		String m_refreshToken = json.getString("refreshToken");
+		System.out.println("m_refreshToken : " + m_refreshToken);
+		
+		
+		return mav;
+	}
 	
 }

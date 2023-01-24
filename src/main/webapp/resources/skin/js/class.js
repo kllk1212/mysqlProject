@@ -161,7 +161,15 @@ class Communication{
 					
                     //document.cookie = "token="+res.token+"; Secure";
 
-                    document.cookie = "token="+res.token+"; max-age=3600; path=/"; domain=" + domain +";
+                    //document.cookie = "token="+res.token+"; max-age=3600; path=/"; domain=" + domain +";
+                    var setCookie = function(name, value, exp) {
+			    		var date = new Date();
+				    	date.setTime(date.getTime() + exp*24*60*60*1000);
+				    	document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+				    };
+				    // setCookie(변수이름, 변수값, 날짜(1=1일));
+		  			setCookie("token", res.token, 1);
+		    
 					result = res.code;
                 }else if(res.code == "400"){
                 	result = res.code;

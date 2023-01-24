@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="btnBox logoutDiv" id ="logoutDiv">
                                     <button type="button" id ="logoutBtn">로그아웃</button>
-                                    <button type="button" onclick="location.href='../main/mypage'">마이페이지</button>
+                                    <button type="button" id ="mypageBtn">마이페이지</button>
                                 </div>
                             </div>
                         </div>
@@ -92,18 +92,3 @@
                 </div>
             </header>
             <!-- //header -->
-            <script>
-            $(document).ready(function() {
-            	var token = document.cookie.indexOf('token');
-            	console.log("token : " + token);
-            	// 로그인상태 0
-            	if(token == 0){
-                    $('#logoutDiv').css('display','flex');
-            		// $("#loginDiv").hide();
-                }else{
-                    $('#loginDiv').css('display','flex');
-            	    // $("#loginDiv").show();
-            		// $("#logoutDiv").hide();
-            	}
-  			});
-            </script>

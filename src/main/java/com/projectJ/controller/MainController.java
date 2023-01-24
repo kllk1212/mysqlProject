@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
@@ -43,6 +44,7 @@ public class MainController {
 	}
 	
 	@GetMapping("mypage")
+	@ResponseBody
 	public void mypage() {
 		
 	}
@@ -58,47 +60,14 @@ public class MainController {
 		log.info("*********loginGet 진입");
 	}
 
-	@GetMapping("logout")
-	public void logoutGet(HttpServletResponse response,HttpServletRequest request) throws IOException{
-		HttpSession session = request.getSession();
-		session.invalidate();
-		SciptUtils.alertAndMovePage(response, "안전하게 로그아웃 되었습니다 ^^","/main/main");
-	}
-	
+
 	
 	@GetMapping("signup") 			// 회원가입 창
 	public void signupGet() {
 		log.info("*********signupGet 진입");
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = "idCheck", method = RequestMethod.POST)
-	public String idCheck(UserInfoDTO dto) {
-		int result = service.idCheck(dto);
-		log.info("************** 중복이면 1 아니면 0 : "+result);
-		String message = null;
-		if(result == 1) {
-			message="fail";
-		}else {
-			message="success";
-		}
-		
-		return message;
-	}
-	
-	
-	
-	
-	@PostMapping("signup") 			// 회원가입 정보 입력 후 
-	public String signupPost(MemberInfoDTO userDTO) {
-		log.info("*********signupPost 진입");
-		log.info("회원가입 정보 : " + userDTO);
-		loginService.insertUserData(userDTO);
-		
-		return "redirect:/main/signupComplete";
-	}
-	
-	
+
 	
 	
 	@GetMapping("signupComplete")
