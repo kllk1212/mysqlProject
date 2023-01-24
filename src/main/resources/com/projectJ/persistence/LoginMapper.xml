@@ -35,4 +35,11 @@
 	update memberInfo set m_failCnt = 0, m_refreshToken = #{m_refreshToken} where m_idx =#{m_idx}
 </update>
 
+<select id="getOneUserData" resultType="com.projectJ.domain.MemberInfoDTO">
+	select * from memberInfo where m_refreshToken = #{m_refreshToken}
+</select>
+
+
+
+
 </mapper>

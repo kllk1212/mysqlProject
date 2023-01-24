@@ -1,7 +1,7 @@
 
 
-let domain = "http://localhost:8080";
-//let domain = "http://jaehoon.co.kr";
+//let domain = "http://localhost:8080";
+let domain = "http://jaehoon.co.kr";
 
 let key = "jaehoon";
 
