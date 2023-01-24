@@ -149,6 +149,11 @@
   .calc h3, .diagnosis h3 {
     font-size: 1.6rem;
   }
+  .diagnosis .h-btn,
+.diagnosis .layout_wrap_in {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .diagnosis .tab_header .inwrap {
     flex-direction: column;
     align-items: flex-start;
