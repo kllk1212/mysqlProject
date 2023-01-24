@@ -5,6 +5,10 @@ body {
     --footerH: 120px;
 }
 
+h2{
+    font-size: 2.2rem;
+}
+
 a{
     color: inherit;
 }
@@ -91,6 +95,20 @@ select, button {
     font-weight: bold;
     border-radius: 1rem;
     transition: all .2s ease-in-out;
+}
+
+
+@media only screen and (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="search"],
+    input[type="password"],
+    select, button {
+        height: 3.8rem;
+        font-size: 1.2rem;
+    }
 }
 
 /* placeholder */
@@ -262,5 +280,5 @@ form > button{
 
 .calc h3,
 .diagnosis h3 {
-    font-size: 2.4rem;
+    font-size: 1.8rem;
 }

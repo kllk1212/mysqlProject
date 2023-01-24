@@ -30,10 +30,11 @@
         align-items: center;
         justify-content: center;
         width: 100%;
+        min-width: 142px;
         height: 100%;
         width: 220px;
         position: relative;
-        top: -5px;
+        top: -3px;
     }
 
     &_menu{
@@ -167,6 +168,7 @@
     height: var(--footerH);
     // font-size: 1.2rem;
     border-top: 1px solid #707070;
+    font-size: 1.2rem;
 
     &_wrap {
         max-width: 1200px;
@@ -185,6 +187,7 @@
 .address {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     padding-left: 1.8rem;
 
     span+span {
@@ -193,7 +196,7 @@
 }
 /* customer center */
 .cs_img {
-    width: 40px;
+    width: 30px;
     padding-right: 8px;
 }
 /* ======================= */
@@ -240,6 +243,7 @@
         text-align: center;
     }
     .layout_wrap{
+        align-items: center;
         margin-top: 8rem;
         padding-top: 4rem;
         padding-bottom: 2rem;
@@ -247,9 +251,9 @@
     }
     .inwrap{
         width: 50%;
-        font-size: 2.8rem;
+        font-size: 1.6rem;
         img{
-            width: 80%;
+            width: 60%;
         }
         p{
             display: flex;
@@ -257,7 +261,7 @@
         }
         >div:nth-of-type(2){
             // @include designBorderbox;
-            font-size: 2.4rem;
+            font-size: 1.8rem;
             padding: 2rem 1rem;
             line-height: 1.4;
         }
@@ -477,11 +481,19 @@
     width: 420px;
     padding-bottom: 4rem;
     margin: 0 auto;
+    small{
+        font-size: 1.2rem;
+    }
+    h2{
+        font-size: 1.6rem;
+    }
 }
 
 #loginForm {
     h2 {
+        width: 80%;
         padding-bottom: 4rem;
+        margin: 0 auto;
     }
 
     .inputBox {
@@ -619,6 +631,8 @@
     .s-search {
         // min-height: 472px;
         padding-top: 4rem !important;
+        padding-left: 2rem;
+        padding-right: 2rem;
         margin-top: 4rem;
         @include designBorderbox;
 
@@ -643,7 +657,7 @@
         display: none;
         width: 100%;
         max-width: 500px;
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
     td {
@@ -675,10 +689,10 @@
     // 정보 입력 라인박스
     .outerWrap {
         display: none;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         word-break: keep-all;
 
-        > div {
+        .layout_wrap {
             display: flex;
             justify-content: space-between;
         }
@@ -700,6 +714,10 @@
             span {
                 font-size: 3rem;
             }
+        }
+
+        p{
+            font-size: 1.4rem;
         }
     }
 
@@ -943,6 +961,7 @@
     --bar-bg1: var(--blue);
     --bar-bg2: var(--sky);
     --bar-bg3: #999;
+    word-break: keep-all;
 
     &_header {
         button {
@@ -962,7 +981,7 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                font-size: 2.4rem;
+                font-size: 1.8rem;
                 font-weight: bold;
                 margin: 2rem auto 1rem;
             }
@@ -972,7 +991,7 @@
             }
 
             .fc-red {
-                font-size: 3rem;
+                font-size: 2.4rem;
             }
 
             button {
@@ -990,7 +1009,7 @@
                 color: var(--black);
                 text-align: center;
                 font-weight: bold;
-                font-size: 2rem;
+                font-size: 1.6rem;
                 border: 2px solid #777;
                 background-color: var(--white);
                 border-radius: 10px;
@@ -1049,7 +1068,7 @@
 
             .unit {
                 //단위
-                font-size: 1.8rem;
+                font-size: 1.2rem;
                 // position: absolute;
                 // top: 0;
                 color: #999;
@@ -1081,7 +1100,7 @@
             .category_num {
                 position: absolute;
                 bottom: 0;
-                font-size: 3rem;
+                font-size: 2.4rem;
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-end;
@@ -1095,10 +1114,12 @@
                     width: calc((100% - 40px)/3);
                 }
                 p{
-                    font-size: 2.2rem;
-                    word-break: break-word;
+                    font-size: 1.4rem;
                     width: 80%;
                     margin: 0 auto;
+                }
+                .numTrans{
+                    font-size: 1.8rem;
                 }
             }
 
@@ -1108,7 +1129,7 @@
                 border: 2px solid #666;
                 border-radius: 10px;
                 padding: 2rem 0;
-                font-size: 2rem;
+                font-size: 1.4rem;
 
                 > div {
                     display: flex;
@@ -1139,7 +1160,7 @@
 
         &_fc {
             .commentBox {
-                font-size: 2rem;
+                font-size: 1.4rem;
                 color: var(--black);
 
                 p+p {
@@ -1168,8 +1189,8 @@
             table {
                 width: 100%;
                 text-align: left;
-                font-size: 2.2rem;
                 border: 1px solid #dedede;
+                font-size: 1.4rem;
 
                 tr {
                     height: 7rem;
@@ -1272,7 +1293,7 @@
         border-radius: 50%;
         text-align: center;
         line-height: 8rem;
-        font-size: 2rem;
+        font-size: 1.4rem;
         transform: translate(-50%, -50%); //가운데 위
     }
 
@@ -1289,10 +1310,11 @@
 /* ======================= */
 .layer_pop {
     &_calcMain {
-        width: 500px;
+        width: 90%;
+        max-width: 500px;
         height: 220px;
         font-weight: bold;
-        font-size: 2.4rem;
+        font-size: 2rem;
     }
 }
 /* ======================= */

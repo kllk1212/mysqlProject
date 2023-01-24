@@ -69,7 +69,7 @@
                                                     <!--노출되지않음 소수점버림  -->
                                                     <!-- <span style="font-size: 10pt">${comName }</span></br>
                                                     <span><fmt:formatNumber type="number"  pattern="0" value="${ ((avg*100) - ((avg*100)%1)) * (1/100)   } " /></span> -->
-                                                    <p style="font-size:17px">${comName }</p>
+                                                    <p>${comName }</p>
                                                     <span class="numTrans"><fmt:formatNumber type="number"  pattern="0" value="${ ((avg*100) - ((avg*100)%1)) * (1/100)   } " /></span>
                                                 </li>
                                                 <li>
@@ -155,16 +155,40 @@
                                             <c:set var="num2" value="${fDTO[0].f_franchiseeEa / allFchaEA*100}" /><!-- 지역네네치킨 / 지역치킨업종 -->
 
 
-                                            <p>${areaName} 지역의 ${cDTO.c_type } 업종 프랜차이즈 매장수 는 <span class="fc-red">${allFchaEA }개</span> 입니다.</p>
-                                            <p>전국의 ${comName} 매장수 는 <span class="fc-red">총 ${cDTO.c_storeCount }개</span> 입니다.</p>
-                                            <p>${areaName} 지역의 ${cDTO.c_comName } 점포수는 <span class="fc-red">${fDTO[0].f_franchiseeEa }개</span> 입니다.</p>
-                                            <p>${cDTO.c_comName }은(는) ${areaName} 지역 ${cDTO.c_type } 업종 프렌차이즈 중 <span class="fc-red">
-                                                    <fmt:formatNumber type="number" pattern="0.00" value="${ ((num2*100) - ((num2*100)%1)) * (1/100)   } " />%
-                                                </span>를 차지합니다.</p>
-                                            <p>${areaName} 지역에는 전국 ${cDTO.c_comName } 매장 중 <span class="fc-red">
-                                                    <fmt:formatNumber type="number" pattern="0.00" value="${ ((num*100) - ((num*100)%1)) * (1/100)   } " />%
-                                                </span>가 있습니다.</p>
-                                            <p>이 데이터는 <span class="fc-red">${fDTO[0].f_year} 기준</span>입니다.</p>
+                                            <p>
+                                                <span>
+                                                    ${areaName} 지역의 ${cDTO.c_type } 업종 프랜차이즈 매장수 는 <i class="fc-red fwb">${allFchaEA }개</i> 입니다.
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>
+                                                    전국의 ${comName} 매장수 는 <i class="fc-red fwb">총 ${cDTO.c_storeCount }개</i> 입니다.
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>
+                                                    ${areaName} 지역의 ${cDTO.c_comName } 점포수는 <i class="fc-red fwb">${fDTO[0].f_franchiseeEa }개</i> 입니다.
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>
+                                                    ${cDTO.c_comName }은(는) ${areaName} 지역 ${cDTO.c_type } 업종 프렌차이즈 중 <i class="fc-red fwb">
+                                                        <fmt:formatNumber type="number" pattern="0.00" value="${ ((num2*100) - ((num2*100)%1)) * (1/100)   } " />%
+                                                    </i>를 차지합니다.
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>
+                                                    ${areaName} 지역에는 전국 ${cDTO.c_comName } 매장 중 <i class="fc-red fwb">
+                                                        <fmt:formatNumber type="number" pattern="0.00" value="${ ((num*100) - ((num*100)%1)) * (1/100)   } " />%
+                                                    </i>가 있습니다.
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>
+                                                    이 데이터는 <i class="fc-red fwb">${fDTO[0].f_year} 기준</i>입니다.
+                                                </span>
+                                            </p>
                                         </div>
                                         <div class="inwrap fx jc">
                                             <div class="doughnutBox fx fdc">

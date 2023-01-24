@@ -22,10 +22,11 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  min-width: 142px;
   height: 100%;
   width: 220px;
   position: relative;
-  top: -5px;
+  top: -3px;
 }
 .header_menu {
   display: flex;
@@ -130,6 +131,7 @@
   width: 100%;
   height: var(--footerH);
   border-top: 1px solid #707070;
+  font-size: 1.2rem;
 }
 .footer_wrap {
   max-width: 1200px;
@@ -147,6 +149,7 @@
 .address {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding-left: 1.8rem;
 }
 .address span + span {
@@ -155,7 +158,7 @@
 
 /* customer center */
 .cs_img {
-  width: 40px;
+  width: 30px;
   padding-right: 8px;
 }
 
@@ -201,6 +204,7 @@
   text-align: center;
 }
 .s-siteinfo .layout_wrap {
+  align-items: center;
   margin-top: 8rem;
   padding-top: 4rem;
   padding-bottom: 2rem;
@@ -209,17 +213,17 @@
 }
 .s-siteinfo .inwrap {
   width: 50%;
-  font-size: 2.8rem;
+  font-size: 1.6rem;
 }
 .s-siteinfo .inwrap img {
-  width: 80%;
+  width: 60%;
 }
 .s-siteinfo .inwrap p {
   display: flex;
   word-break: break-all;
 }
 .s-siteinfo .inwrap > div:nth-of-type(2) {
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   padding: 2rem 1rem;
   line-height: 1.4;
 }
@@ -393,9 +397,19 @@
   padding-bottom: 4rem;
   margin: 0 auto;
 }
+.s-login small,
+.s-signupComplete small {
+  font-size: 1.2rem;
+}
+.s-login h2,
+.s-signupComplete h2 {
+  font-size: 1.6rem;
+}
 
 #loginForm h2 {
+  width: 80%;
   padding-bottom: 4rem;
+  margin: 0 auto;
 }
 #loginForm .inputBox {
   width: 70%;
@@ -503,6 +517,8 @@
 /* ======================= */
 .calcMain .s-search {
   padding-top: 4rem !important;
+  padding-left: 2rem;
+  padding-right: 2rem;
   margin-top: 4rem;
   border: 2px solid #eee;
   border-radius: 30px;
@@ -523,7 +539,7 @@
   display: none;
   width: 100%;
   max-width: 500px;
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 .calcMain td {
   width: 100%;
@@ -548,10 +564,10 @@
 }
 .calcMain .outerWrap {
   display: none;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   word-break: keep-all;
 }
-.calcMain .outerWrap > div {
+.calcMain .outerWrap .layout_wrap {
   display: flex;
   justify-content: space-between;
 }
@@ -569,6 +585,9 @@
 }
 .calcMain .outerWrap h3 span {
   font-size: 3rem;
+}
+.calcMain .outerWrap p {
+  font-size: 1.4rem;
 }
 .calcMain #getResultSalesForm .list_name {
   align-items: center;
@@ -746,6 +765,7 @@
   --bar-bg1: var(--blue);
   --bar-bg2: var(--sky);
   --bar-bg3: #999;
+  word-break: keep-all;
 }
 .diagnosis_header button {
   position: absolute;
@@ -761,7 +781,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   font-weight: bold;
   margin: 2rem auto 1rem;
 }
@@ -769,7 +789,7 @@
   line-height: 1.5;
 }
 .diagnosis .tab_header .fc-red {
-  font-size: 3rem;
+  font-size: 2.4rem;
 }
 .diagnosis .tab_header button {
   background-color: var(--sky);
@@ -783,7 +803,7 @@
   color: var(--black);
   text-align: center;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.6rem;
   border: 2px solid #777;
   background-color: var(--white);
   border-radius: 10px;
@@ -821,7 +841,7 @@
   margin: 0 auto;
 }
 .diagnosis .tab_chart .unit {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   color: #999;
   z-index: 2;
   text-align: right;
@@ -840,7 +860,7 @@
 .diagnosis .tab_chart .category_num {
   position: absolute;
   bottom: 0;
-  font-size: 3rem;
+  font-size: 2.4rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -854,17 +874,19 @@
   width: calc((100% - 40px) / 3);
 }
 .diagnosis .tab_chart .category_num p {
-  font-size: 2.2rem;
-  word-break: break-word;
+  font-size: 1.4rem;
   width: 80%;
   margin: 0 auto;
+}
+.diagnosis .tab_chart .category_num .numTrans {
+  font-size: 1.8rem;
 }
 .diagnosis .tab_chart .category_list {
   margin-top: 2rem;
   border: 2px solid #666;
   border-radius: 10px;
   padding: 2rem 0;
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 .diagnosis .tab_chart .category_list > div {
   display: flex;
@@ -891,7 +913,7 @@
   margin-left: 50px;
 }
 .diagnosis .tab_fc .commentBox {
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: var(--black);
 }
 .diagnosis .tab_fc .commentBox p + p {
@@ -913,8 +935,8 @@
 .diagnosis .tab_inwrap table {
   width: 100%;
   text-align: left;
-  font-size: 2.2rem;
   border: 1px solid #dedede;
+  font-size: 1.4rem;
 }
 .diagnosis .tab_inwrap table tr {
   height: 7rem;
@@ -988,7 +1010,7 @@
   border-radius: 50%;
   text-align: center;
   line-height: 8rem;
-  font-size: 2rem;
+  font-size: 1.4rem;
   transform: translate(-50%, -50%);
 }
 .doughnut button {
@@ -1003,10 +1025,11 @@
 /* layer POP */
 /* ======================= */
 .layer_pop_calcMain {
-  width: 500px;
+  width: 90%;
+  max-width: 500px;
   height: 220px;
   font-weight: bold;
-  font-size: 2.4rem;
+  font-size: 2rem;
 }
 
 /* ======================= */

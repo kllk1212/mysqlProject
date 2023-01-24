@@ -46,34 +46,52 @@
             <!-- header -->
             <header id="header" class="header">
                 <div class="header_wrap layout_wrap">
-                    <div class="header_left">
-                        <div class="header_logo">
-                            <a href="">
-                                <img src="../img/common/logo.png" alt="창업나무" class="vP">
-                                <img src="../img/common/logoH_tree.png" alt="창업나무" class="vT">
-                            </a>
-                        </div>
-                        <nav class="nav center-t">
+                    <div class="header_logo">
+                        <a href="../main/main">
+                            <img src="../img/common/logo.png" alt="창업나무">
+                            <!-- <img src="../img/common/logo.png" alt="창업나무" class="vP">
+                            <img src="../img/common/logoH_tree.png" alt="창업나무" class="vT"> -->
+                        </a>
+                    </div>
+                    <div class="header_menu">
+
+                        <nav class="header_left nav">
                             <ul id="gnb" class="gnb">
-                                <li><a href="">홈</a></li>
+                                <li><a href="../main/main">홈</a></li>
                                 <li class="depth">
-                                    <a href="">프렌차이즈 정보</a>
+                                    <a href="../diagnosis/diagnosisMain">프렌차이즈 정보</a>
+                                    <!-- 
                                     <div>
                                         <ul class="fx">
-                                            <li><a href="#">기업평점/리뷰</a></li>
-                                            <li><a href="#">순위</a></li>
-                                            <li><a href="#">분석기</a></li>
+                                            <li><a href="../franchise/reviewMain">기업평점/리뷰</a></li>
+                                            <li><a href="../franchise/rankMain">순위</a></li>
+                                            <li><a href="../map/mapSearchMain">지도</a></li>
+                                            <li><a href="../diagnosis/diagnosisMain">조건검색</a></li>
                                         </ul>
                                     </div>
+                                        -->
                                 </li>
-                                <li><a href="">예상매출 계산기</a></li>
-                                <li><a href="">사이트 소개</a></li>
-                                <li><a href="">QnA</a></li>
+                                <li><a href="../franchise/incomeCalcMain">순이익 계산기</a></li>
+                                <li><a href="../main/siteInfo">사이트 소개</a></li>
                             </ul>
                         </nav>
+
+                        <div class="header_right">
+                            <div class="inwrap">
+                                <div class="btnBox loginDiv" id ="loginDiv">
+                                    <button type="button" onclick="location.href='../main/login' ">로그인 <span class="vP">및 회원가입</span></button>
+                                </div>
+                                <div class="btnBox logoutDiv" id ="logoutDiv" style="display: flex;">
+                                    <button type="button" id ="logoutBtn">로그아웃</button>
+                                    <button type="button" onclick="location.href='../main/mypage'">마이페이지</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        
                     </div>
-                    <div class="header_right">
-                        <button type="button" id="headerBtn">로그인 <span class="vP">및 회원가입</span></button>
+                    <div id="ham" class="ham vM-f">
+                        <span></span>
                     </div>
                 </div>
             </header>
@@ -354,13 +372,7 @@
                                 <p>업종별 평균 예상 매출과 지출 비용은 창업나무가 조사한 내용입니다.</p>
                             </div>
                         </div>
-                        <!-- <i class="line mt-A mb-A"></i>
-                        <div class="commentBox Pb0">
-                            <p>희망지역은 국내 시/도 기준으로 선택 가능합니다.</p>
-                            <p>1평 기준 최대 25평까지 선택할 수 있습니다.</p>
-                            <p>실제 창업 조건과 운영 환경에 따라 오차가 발생할 수 있습니다.</p>
-                            <p>조건에 따라 산출되는 데이터는 창업나무가 조사한 내용입니다.</p>
-                        </div> -->
+                        <i class="line mt-A mb-A"></i>
                     </div>
                 </form>
 
