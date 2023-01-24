@@ -24,8 +24,15 @@
         --headerH: 100px;
         font-size: 1.4rem;
     }
+    .nav{
+        font-size: 1.6rem;
+    }
+    .header_right button{
+        // width: 15rem;
+        font-size: 1.2rem;
+    }
     .header_logo{
-        width: 70px;
+        width: 142px;
     }
     .gnb > li > a::after{
         top: 125%;
@@ -53,5 +60,10 @@
             padding-top: 2rem;
             padding-bottom: 0;
         }
+    }
+}
+@media only screen and (max-width: 768px) {
+    .vM{
+        display: none !important;
     }
 }
