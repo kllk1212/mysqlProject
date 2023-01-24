@@ -14,6 +14,7 @@
 .header_wrap {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: relative;
 }
 .header_logo {
@@ -26,6 +27,11 @@
   position: relative;
   top: -5px;
 }
+.header_menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
 .header_left {
   display: flex;
   align-content: center;
@@ -36,7 +42,7 @@
   display: flex;
   align-items: center;
 }
-.header_right .inwrap {
+.header_right .btnBox {
   display: none;
 }
 .header_right button {
@@ -90,6 +96,30 @@
 }
 .gnb .depth li + li {
   margin-left: 3rem;
+}
+
+.ham {
+  --line: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 20px;
+  height: 16px;
+  margin-left: 10px;
+}
+.ham span {
+  display: inline-block;
+  width: 100%;
+  height: var(--line);
+  background-color: #000;
+}
+.ham::before, .ham::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: var(--line);
+  background-color: #000;
 }
 
 /* ======================= */

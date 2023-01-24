@@ -54,48 +54,41 @@
             <!-- header -->
             <header id="header" class="header">
                 <div class="header_wrap layout_wrap">
-                    <div class="header_left">
-                        <div class="header_logo">
-                            <a href="../main/main">
-                                <img src="../resources/skin/img/common/logo.png" alt="창업나무" class="vP">
-                                <img src="../resources/skin//img/common/logoH_tree.png" alt="창업나무" class="vT">
-                            </a>
-                        </div>
-                        <nav class="nav">
+                    <div class="header_logo">
+                        <a href="../main/main">
+                            <img src="../img/common/logo.png" alt="창업나무">
+                        </a>
+                    </div>
+                    <div class="header_menu">
+
+                        <nav class="header_left nav">
                             <ul id="gnb" class="gnb">
                                 <li><a href="../main/main">홈</a></li>
                                 <li class="depth">
                                     <a href="../diagnosis/diagnosisMain">프렌차이즈 정보</a>
-                                    <!-- 
-                                    <div>
-                                        <ul class="fx">
-                                            <li><a href="../franchise/reviewMain">기업평점/리뷰</a></li>
-                                            <li><a href="../franchise/rankMain">순위</a></li>
-                                            <li><a href="../map/mapSearchMain">지도</a></li>
-                                            <li><a href="../diagnosis/diagnosisMain">조건검색</a></li>
-                                        </ul>
-                                    </div>
-                                     -->
                                 </li>
                                 <li><a href="../franchise/incomeCalcMain">순이익 계산기</a></li>
                                 <li><a href="../main/siteInfo">사이트 소개</a></li>
                             </ul>
                         </nav>
-                    </div>
 
-                    <div class="header_right">
-
-                        <div class="inwrap" id ="loginDiv">
-                            <button type="button" onclick="location.href='../main/login' ">로그인 <span class="vP">및 회원가입</span></button>
+                        <div class="header_right">
+                            <div class="inwrap">
+                                <div class="btnBox loginDiv" id ="loginDiv">
+                                    <button type="button" onclick="location.href='../main/login' ">로그인 <span class="vP">및 회원가입</span></button>
+                                </div>
+                                <div class="btnBox logoutDiv" id ="logoutDiv">
+                                    <button type="button" id ="logoutBtn">로그아웃</button>
+                                    <button type="button" onclick="location.href='../main/mypage'">마이페이지</button>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="inwrap" id ="logoutDiv">
-                            <button type="button" id ="logoutBtn">로그아웃</button>
-                            <button type="button" onclick="location.href='../main/mypage'">마이페이지</button>
-                        </div>
-
+                        
                     </div>
-
+                    <div id="ham" class="ham vM-f">
+                        <span></span>
+                    </div>
                 </div>
             </header>
             <!-- //header -->

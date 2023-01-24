@@ -1,6 +1,6 @@
 $(function(){
 
-	communication = new Communication();
+	// communication = new Communication();
 	
     // ============================================================
     // ============ Header ========================================
@@ -18,6 +18,7 @@ $(function(){
     },function(){
         $(this).find('div').fadeOut();
     });
+    
     $("#signupBtn").on("click",function(e){
 		console.log("회원가입 버튼 클릭");
 		let id = $("#m_id").val();
@@ -36,6 +37,7 @@ $(function(){
 		
 
 	}); //$("#signupBtn")
+
 	$("#loginBtn").on("click",function(e){
 		console.log("로그인버튼 클릭");
 
@@ -63,7 +65,11 @@ $(function(){
 		document.cookie = 'token=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
 	});
 	
-
+	// (모바일) 헤더 햄버거 버튼 클릭
+	$('#ham').on('click',function(){
+		$(this).toggleClass('on');
+		$(".header_menu").toggleClass('active');
+	});
 
     // ============================================================
     // ============ form ==========================================

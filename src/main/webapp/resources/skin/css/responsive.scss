@@ -1,5 +1,5 @@
 .vT{display: none;}
-
+.vM{display: none;}
 @media only screen and (max-width: 1200px) {
     body{
         --headerH: 120px;
@@ -32,6 +32,7 @@
         font-size: 1.2rem;
     }
     .header_logo{
+        // width: 70px;
         width: 142px;
     }
     .gnb > li > a::after{
@@ -64,6 +65,55 @@
 }
 @media only screen and (max-width: 768px) {
     .vM{
-        display: none !important;
+        display: block;
+    }
+    .vM-f{
+        display: flex;
+    }
+    .header{
+        &_logo{
+            top: 0;
+        }
+        &_menu{
+            flex-direction: column-reverse;
+            justify-content: flex-end;
+            padding: 30px 20px;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 100%;
+            background-color: #fff;
+            z-index: 99;
+            transition: left .3s ease-in;
+            &.active{
+                left: 0;
+            }
+        }
+    }
+    .gnb{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 0;
+    }
+    .ham{
+        position: relative;
+        z-index: 100;
+        cursor: pointer;
+        &.on{
+            span{
+                display: none;
+            }
+            &::before,
+            &::after{
+                position: absolute;
+            }
+            &::before{
+                transform: rotate(45deg);
+            }
+            &::after{
+                transform: rotate(-45deg);
+            }
+        }
     }
 }

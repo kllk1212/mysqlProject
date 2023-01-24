@@ -2,6 +2,10 @@
   display: none;
 }
 
+.vM {
+  display: none;
+}
+
 @media only screen and (max-width: 1200px) {
   body {
     --headerH: 120px;
@@ -65,6 +69,50 @@
 }
 @media only screen and (max-width: 768px) {
   .vM {
-    display: none !important;
+    display: block;
+  }
+  .vM-f {
+    display: flex;
+  }
+  .header_logo {
+    top: 0;
+  }
+  .header_menu {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    padding: 30px 20px;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 100%;
+    background-color: #fff;
+    z-index: 99;
+    transition: left 0.3s ease-in;
+  }
+  .header_menu.active {
+    left: 0;
+  }
+  .gnb {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 0;
+  }
+  .ham {
+    position: relative;
+    z-index: 100;
+    cursor: pointer;
+  }
+  .ham.on span {
+    display: none;
+  }
+  .ham.on::before, .ham.on::after {
+    position: absolute;
+  }
+  .ham.on::before {
+    transform: rotate(45deg);
+  }
+  .ham.on::after {
+    transform: rotate(-45deg);
   }
 }/*# sourceMappingURL=responsive.css.map */
