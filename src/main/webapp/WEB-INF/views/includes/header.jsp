@@ -56,7 +56,7 @@
                 <div class="header_wrap layout_wrap">
                     <div class="header_logo">
                         <a href="../main/main">
-                            <img src="../img/common/logo.png" alt="창업나무">
+                            <img src="../resources/skin/img/common/logo.png" alt="창업나무">
                         </a>
                     </div>
                     <div class="header_menu">
