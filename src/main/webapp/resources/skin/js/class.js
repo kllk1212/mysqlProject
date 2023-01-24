@@ -160,11 +160,8 @@ class Communication{
 					console.log("쿠키생성");
 					
                     //document.cookie = "token="+res.token+"; Secure";
-                    //로컬에서 사용시
-                    //domain = "localhost:8080/";
-                    // 배포에서 사용시
-                    //domain = "jaehoon.co.kr/";
-                    document.cookie = "token="+res.token+"; path=/"; domain="; + domain +";
+
+                    document.cookie = "token="+res.token+"; max-age=3600; path=/"; domain=" + domain +";
 					result = res.code;
                 }else if(res.code == "400"){
                 	result = res.code;
