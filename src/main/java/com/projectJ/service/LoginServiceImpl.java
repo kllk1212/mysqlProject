@@ -77,6 +77,11 @@ public class LoginServiceImpl implements LoginService{
 	public int updateRtokenAndfailCnt(MemberInfoDTO dto) {
 		return mapper.updateRtokenAndfailCnt(dto);
 	}
+
+	@Override
+	public MemberInfoDTO getOneUserData(String m_refreshToken) {
+		return mapper.getOneUserData(m_refreshToken);
+	}
 	
 
 

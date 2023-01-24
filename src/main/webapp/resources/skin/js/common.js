@@ -1,8 +1,8 @@
 $(function(){
 
 	communication = new Communication();
-	let domain = "http://localhost:8080";
-	//let domain = "http://jaehoon.co.kr";
+	//let domain = "http://localhost:8080";
+	let domain = "http://jaehoon.co.kr";
 	
     // ============================================================
     // ============ Header ========================================
@@ -109,6 +109,8 @@ $(function(){
             async: false,
             success:function(data){
                 console.log("통신성공");
+                console.log(data.data);
+                
             },
 			error:function(){		 
 				console.log("통신에러");

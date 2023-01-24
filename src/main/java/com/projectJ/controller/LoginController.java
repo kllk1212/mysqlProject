@@ -1,5 +1,9 @@
 package com.projectJ.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.commons.collections.map.HashedMap;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -104,8 +108,9 @@ public class LoginController {
 	}
 	
 	@PostMapping("mypage")
-	public ModelAndView mypageGet(@RequestParam String token) {
-		ModelAndView mav = new ModelAndView("jsonView");
+	public Map<String, String> mypageGet(@RequestParam String token,Model model) {
+		//ModelAndView mav = new ModelAndView("jsonView");
+		Map<String, String> map = new HashMap<String, String>();
 		System.out.println("token : " + token);
 		String decrypt = dao.decrypt(token);
 		System.out.println("decrypt : " + decrypt);
@@ -113,9 +118,22 @@ public class LoginController {
 		System.out.println("json : " + json);
 		String m_refreshToken = json.getString("refreshToken");
 		System.out.println("m_refreshToken : " + m_refreshToken);
+		// 리플래쉬 토큰을 주면 회원정보 가져오기 
+		MemberInfoDTO oneUserData = loginService.getOneUserData(m_refreshToken);
+		System.out.println("회원 정보 : " + oneUserData);
 		
 		
-		return mav;
+		// DB에서 가져온 유저 정보를 암호화 하여 프론트로 보내기
+		String text = "{"+"\"" + "m_id" + "\":\"" + oneUserData.getM_id() +"\"" 
+		+ "," + "\"" + "m_email" + "\":\"" + oneUserData.getM_email()+ "\"" 
+		+ "," + "\"" + "m_ping" + "\":\"" + oneUserData.getM_ping()+ "\""
+		+ "," + "\"" + "m_phone" + "\":\"" + oneUserData.getM_phone()+ "\""
+		+ "}";
+		System.out.println("text :" +text);
+		String userData = dao.encrypt(text);
+		//model.addAttribute("userData", userData);
+		map.put("data", userData);
+		return map;
 	}
 	
 }

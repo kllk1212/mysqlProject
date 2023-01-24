@@ -19,9 +19,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.projectJ.domain.MemberInfoDTO;
 import com.projectJ.domain.SciptUtils;
-import com.projectJ.domain.UserInfoDTO;
 import com.projectJ.service.LoginService;
-import com.projectJ.service.MainService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -30,8 +28,6 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class MainController {
 	
-	@Autowired
-	private MainService service;
 	
 	@Autowired
 	private LoginService loginService;
