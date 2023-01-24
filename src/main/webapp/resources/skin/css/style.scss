@@ -43,12 +43,11 @@
     }
     /* login & join */
     &_right {
-        display: none;
-        // display: flex;
+        display: flex;
         align-items: center;
 
         .inwrap{
-            
+            display: none;
         }
         button {
             // width: 20rem;
