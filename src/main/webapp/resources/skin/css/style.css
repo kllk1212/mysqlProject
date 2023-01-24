@@ -653,6 +653,11 @@
 /* ======================= */
 /* diagnosis */
 /* ======================= */
+.diagnosisMain table {
+  width: 100%;
+  margin: 0 auto;
+}
+
 .diagnosis .layout_wrap_in {
   border: 2px solid #eee;
   border-radius: 30px;
@@ -666,6 +671,14 @@
 }
 .diagnosis .layout_wrap_in section {
   padding-top: 1rem !important;
+}
+.diagnosis .submitBtn {
+  display: flex;
+  width: 100%;
+}
+.diagnosis .submitBtn button {
+  width: 180px;
+  padding: 0;
 }
 .diagnosis #searchBtn {
   font-size: 1.6rem;
