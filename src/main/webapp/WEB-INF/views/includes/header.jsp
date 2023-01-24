@@ -31,6 +31,8 @@
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="/resources/skin/js/jquery.cookie.js"></script>
     <script defer src="/resources/skin/js/common.js"></script>
+    <script src="/resources/skin/js/class.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 
     <!-- <script src="https://www.youtube.com/player_api"></script> -->
 
@@ -80,16 +82,35 @@
                             </ul>
                         </nav>
                     </div>
-                    <%if(session.getAttribute("user_id")==null){%>
+
                     <div class="header_right">
-                        <button type="button" id="headerBtn" onclick="location.href='../main/login' ">로그인 <span class="vP">및 회원가입</span></button>
+
+                        <div class="inwrap" id ="loginDiv">
+                            <button type="button" onclick="location.href='../main/login' ">로그인 <span class="vP">및 회원가입</span></button>
+                        </div>
+
+                        <div class="inwrap" id ="logoutDiv">
+                            <button type="button" id ="logoutBtn">로그아웃</button>
+                            <button type="button" onclick="location.href='../main/mypage'">마이페이지</button>
+                        </div>
+
                     </div>
-                    <%}else{%>
-                    <div class="header_right">
-                        <button type="button" id="headerBtn"><%=session.getAttribute("user_id") %>님</button>
-                        <button type="button" id="headerBtn" onclick="location.href='../main/logout'">로그아웃</button>
-                    </div>
-                    <%} %>
+
                 </div>
             </header>
             <!-- //header -->
+            <script>
+            $(document).ready(function() {
+            	var token = document.cookie.indexOf('token');
+            	console.log("token : " + token);
+            	// 로그인상태 0
+            	if(token == 0){
+                    $('#logoutDiv').css('display','flex');
+            		// $("#loginDiv").hide();
+                }else{
+                    $('#loginDiv').css('display','flex');
+            	    // $("#loginDiv").show();
+            		// $("#logoutDiv").hide();
+            	}
+  			});
+            </script>

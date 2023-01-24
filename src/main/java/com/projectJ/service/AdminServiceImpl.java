@@ -98,8 +98,11 @@ public class AdminServiceImpl implements AdminService{
 					//Thread.sleep(2000);
 					
 					// 오류떳을때 재실행하는 코드!!!!!!
+					System.out.println("******");
+					//System.out.println(driver.findElement(By.cssSelector("#frm > div:nth-child(12) > div > table:nth-child(2) > tbody > tr:nth-child(5) > td.noborder")).getAttribute("textContent"));
 					if(driver.findElement(By.cssSelector("#frm > div:nth-child(12) > div > table:nth-child(2) > tbody > tr:nth-child(5) > td.noborder")).getAttribute("textContent").trim() == null ||driver.findElement(By.cssSelector("#frm > div:nth-child(12) > div > table:nth-child(2) > tbody > tr:nth-child(5) > td.noborder")).getAttribute("textContent").trim().equals("null")) {
 						driver.close();
+						System.out.println("페이지 오류시 콘솔");
 						driver.get(urlAll.replace("'", ""));
 					}
 					// 회사번호 O

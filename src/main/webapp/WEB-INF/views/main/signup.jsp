@@ -10,7 +10,7 @@
 
 <script>
 	$(function() {
-		$("#m_id").on('keyup', idCheck);
+		//$("#m_id").on('keyup', idCheck);
 	})
 	function idCheck() {
 		var m_id = $("#m_id").val();
@@ -41,7 +41,7 @@
 <div id="contents" class="contents signup page center-f"
 	data-id="signup">
 	<section class="section s-signup">
-		<form id="signupForm" action="/main/signup" method="post">
+		<form id="signupForm">
 			<h2>회원가입</h2>
 			<table>
 				<tr>
@@ -52,17 +52,17 @@
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td><input type="password" name="m_pw" required
+					<td><input type="password" name="m_pw" id="m_pw" required
 						placeholder="비밀번호를 입력해주세요"></td>
 				</tr>
 				<tr>
 					<th>이메일</th>
-					<td><input type="email" name="m_email" required
+					<td><input type="email" name="m_email" id="m_email" required
 						placeholder="이메일 주소를 입력해주세요 (Namu@naver.com)"></td>
 				</tr>
 				<tr>
 					<th>휴대폰번호</th>
-					<td><input type="number" name="m_num" required
+					<td><input type="number" name="m_phone" id="m_phone" required
 						placeholder="'-' 없이 입력해주세요 (01012341234)"></td>
 				</tr>
 				<tr>
@@ -73,7 +73,7 @@
 					</label></td>
 				</tr>
 			</table>
-			<button type="submit">가입하기</button>
+			<button id ="signupBtn" type="submit">가입하기</button>
 		</form>
 	</section>
 </div>

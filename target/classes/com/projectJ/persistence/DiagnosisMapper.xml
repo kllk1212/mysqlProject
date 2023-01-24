@@ -16,15 +16,15 @@
 	</select>
 	<!-- 회사명 입력 후 입력한 회사의 companyInfo(회사기본) 정보 가져오기 -->
 	<select id="companyInfoOne" resultType="com.projectJ.domain.CompanyDTO">
-		select * from companyInfo where c_comName=#{comName} and rownum =1
+		select * from companyInfo where c_comName=#{comName}
 	</select>
 	<!-- 회사명 입력 / 지역 선택 후  입력한 회사의 localSales(지역매출) 정보 가져오기 -->
 	<select id="localSalesOne" resultType="com.projectJ.domain.LocalSalesDTO">
-		select * from localSales where l_comName=#{comName} and l_areaname=#{areaName} and rownum =1
+		select * from localSales where l_comName=#{comName} and l_areaname=#{areaName}
 	</select>
 	<!-- 회사명 입력 / 지역 선택 후  입력한 회사의 franchiseeStatus(각지역점포수) 정보 가져오기 -->
 	<select id="franchiseeStatusOne" resultType="com.projectJ.domain.FranchiseeStatusDTO">
-		select * from franchiseeStatus where f_comName=#{comName} and f_areaname=#{areaName} and rownum =1
+		select * from franchiseeStatus where f_comName=#{comName} and f_areaname=#{areaName}
 	</select>	
 	<!-- 2021년 기준 지역/테마 선택 후 동종업종 매장수 가져오기 -->
 	<select id="allFchaEA" resultType="int"> 
@@ -32,7 +32,7 @@
 	</select>
 	<!-- 지역 / 테마 선택 후 평균 매출 구해오기 -->
 	<select id="avgSales" resultType="int">
-		select TRUNC(avg(l_avgSales/100),0) from localSales where l_areaName=#{areaName} and l_type=#{type} and l_avgSales>0
+		select ROUND(avg(l_avgSales/100),0) from localSales where l_areaName=#{areaName} and l_type=#{type} and l_avgSales>0
 	</select>
 	<!-- 전국의 테마(치킨) 평균 매출 구해오기 -->
 	<select id="avgSalesAll" resultType="int">

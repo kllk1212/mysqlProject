@@ -40,6 +40,10 @@ public class MainController {
 	public void mainGet() {
 		log.info("**********mainGet 진입");
 		//123
+	}
+	
+	@GetMapping("mypage")
+	public void mypage() {
 		
 	}
 	
@@ -53,21 +57,7 @@ public class MainController {
 	public void loginGet() {
 		log.info("*********loginGet 진입");
 	}
-	@PostMapping("login")			// 아이디 비번 입력 후 ~~
-	public void loginPost(UserInfoDTO dto,HttpServletResponse response,HttpServletRequest request)  throws IOException {
-		log.info("***********loginPost 진입 ***************");
-		int result = service.idPwCheck(dto); // 1이면 아디비번 맞음 0이면 틀림
 
-		
-		if(result == 1) {	// 아이디 비번 맞음
-			HttpSession session = request.getSession();
-			String user_id = request.getParameter("m_id");
-			session.setAttribute("user_id", user_id);
-			SciptUtils.alertAndMovePage(response, "로그인 성공","/main/main" );
-		}else		// 아이디 비번 틀림
-			
-			SciptUtils.alertAndMovePage(response, "아이디나 비밀번호를 다시 확인해주세요","/main/login");
-	}
 	@GetMapping("logout")
 	public void logoutGet(HttpServletResponse response,HttpServletRequest request) throws IOException{
 		HttpSession session = request.getSession();

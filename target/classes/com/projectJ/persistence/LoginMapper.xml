@@ -8,7 +8,31 @@
 
 <insert id="insertUserData">
 	insert into memberInfo(m_idx,m_id, m_pw, m_email, m_phone, m_ping, m_failCnt, m_regDate, m_fixDate, m_lastDate, m_status) 
-	values(last_insert_id()+1,#{m_id},#{m_pw},#{m_email},#{m_phone},#{m_ping},0,now(),now(),now(),1)
+	values(last_insert_id()+1,#{m_id},md5(#{m_pw}),#{m_email},#{m_phone},#{m_ping},0,now(),now(),now(),1)
 </insert>
+
+
+<select id="idChk" resultType="int">
+	select count(*) from memberInfo where m_Id = #{m_id}
+</select>
+<select id="idPwChk" resultType="int">
+	select count(*) from memberInfo where m_Id = #{m_id} and m_pw = md5(#{m_pw})
+</select>
+
+<select id="getFailCnt" resultType="int">
+	select m_failCnt from memberInfo where m_Id = #{m_id}
+</select>
+
+<update id="failCntPlus">
+	update memberInfo set m_failCnt = m_failCnt+1 where m_Id = #{m_id}
+</update>
+
+<select id="getIdx" resultType="int">
+	select m_idx from memberInfo where m_Id = #{m_id}
+</select>
+
+<update id="updateRtokenAndfailCnt">
+	update memberInfo set m_failCnt = 0, m_refreshToken = #{m_refreshToken} where m_idx =#{m_idx}
+</update>
 
 </mapper>

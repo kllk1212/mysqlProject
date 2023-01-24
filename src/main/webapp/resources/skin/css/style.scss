@@ -51,7 +51,7 @@
             // height: 5rem;
             border-radius: 10px;
             border: none;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             // background-color: var(--white);
             // color: var(--black);
             &:hover {
@@ -65,7 +65,7 @@
 /* menu */
 .nav {
     // padding: 0 4.687%;
-    font-size: 2.2rem;
+    font-size: 2rem;
 }
 
 .gnb {
@@ -172,7 +172,7 @@
         margin-left: 50px;
     }
     .title{
-        font-size: 3.2rem;
+        font-size: 2.8rem;
         line-height: 1.5;
     }
     .disc{
@@ -395,11 +395,10 @@
     }
 }
 /* ======================= */
-/* sign up */
+/* sign up, .mypage common */
 /* ======================= */
-#signupForm {
-    width: 385px;
-    text-align: center;
+.s-signup form,
+.s-mypage form {
 
     table {
         margin: 0 auto;
@@ -409,9 +408,19 @@
 
     tr {
         display: flex;
-        flex-direction: column;
         text-align: left;
         padding-top: 2rem;
+        &:first-child{
+            padding-top: 4rem;
+        }
+    }
+
+}
+.s-signup form{
+    width: 385px;
+    text-align: center;
+    tr {
+        flex-direction: column;
     }
 
     td {
@@ -529,6 +538,31 @@
         }
     }
 }
+
+/* ====================== */
+/* mypage */
+/* ====================== */
+.s-mypage{
+    form{
+        width: 420px;
+        text-align: center;
+    }
+    table{
+        tr{
+            align-items: center;
+            th{
+                width: 25%;
+            }
+            td{
+                width: 75%;
+                input{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
 /* ======================= */
 /* incomeCalcMain diagnosisMain common */
 /* ======================= */

@@ -39,11 +39,11 @@
 .header_right button {
   border-radius: 10px;
   border: none;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 /* menu */
 .nav {
-  font-size: 2.2rem;
+  font-size: 2rem;
 }
 
 .gnb {
@@ -137,7 +137,7 @@
   margin-left: 50px;
 }
 .s-main .title {
-  font-size: 3.2rem;
+  font-size: 2.8rem;
   line-height: 1.5;
 }
 .s-main .disc {
@@ -313,24 +313,33 @@
 }
 
 /* ======================= */
-/* sign up */
+/* sign up, .mypage common */
 /* ======================= */
-#signupForm {
-  width: 385px;
-  text-align: center;
-}
-#signupForm table {
+.s-signup form table,
+.s-mypage form table {
   margin: 0 auto;
   width: 100%;
   padding-top: 2rem;
 }
-#signupForm tr {
+.s-signup form tr,
+.s-mypage form tr {
   display: flex;
-  flex-direction: column;
   text-align: left;
   padding-top: 2rem;
 }
-#signupForm td {
+.s-signup form tr:first-child,
+.s-mypage form tr:first-child {
+  padding-top: 4rem;
+}
+
+.s-signup form {
+  width: 385px;
+  text-align: center;
+}
+.s-signup form tr {
+  flex-direction: column;
+}
+.s-signup form td {
   padding-top: 1rem;
 }
 
@@ -420,6 +429,26 @@
 }
 .calcMain #resultForm .unit-money {
   top: calc(50% + 1px);
+}
+
+/* ====================== */
+/* mypage */
+/* ====================== */
+.s-mypage form {
+  width: 420px;
+  text-align: center;
+}
+.s-mypage table tr {
+  align-items: center;
+}
+.s-mypage table tr th {
+  width: 25%;
+}
+.s-mypage table tr td {
+  width: 75%;
+}
+.s-mypage table tr td input {
+  width: 100%;
 }
 
 /* ======================= */
@@ -981,6 +1010,4 @@
   .calcMain .outerWrap {
     font-size: 1.4rem;
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
