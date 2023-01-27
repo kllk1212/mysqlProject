@@ -82,6 +82,11 @@ public class LoginServiceImpl implements LoginService{
 	public MemberInfoDTO getOneUserData(String m_refreshToken) {
 		return mapper.getOneUserData(m_refreshToken);
 	}
+
+	@Override
+	public void updateUserData(MemberInfoDTO dto) {
+		mapper.updateUserData(dto);
+	}
 	
 
 

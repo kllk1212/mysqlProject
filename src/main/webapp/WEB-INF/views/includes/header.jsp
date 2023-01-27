@@ -3,7 +3,7 @@
     
 <!DOCTYPE html>
 <html lang="ko">
-
+<link rel="shortcut icon" href="#">
 <head>
     <meta charset="UTF-8">
     <!-- 10월 4일 한글깨져서 헤더 주석

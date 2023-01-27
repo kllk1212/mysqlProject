@@ -1,7 +1,7 @@
 
 
-//let domain = "http://localhost:8080";
-let domain = "http://jaehoon.co.kr";
+let domain = "http://localhost:8080";
+//let domain = "http://jaehoon.co.kr";
 
 let key = "jaehoon";
 
@@ -296,6 +296,7 @@ class Communication{
             async: false,
             success:function(res){
                 result = res;
+                console.log("*******************");
             }
         });
 
@@ -355,19 +356,21 @@ class Communication{
       return result;
     }
 
-    updateData(id,oupw,nupw){
+    updateUserData(id,pw,email,phone,ping){
 
       const obj = new Object;
       var result;
 
       obj.id = id;
-      obj.pw = oupw;
-      obj.newPw = nupw;
+      obj.pw = pw;
+      obj.email = email;
+      obj.phone = phone;
+      obj.ping = ping;
 
       const token = this.encryption.encrypt(JSON.stringify(obj));
 
       $.ajax({
-        url:domain+'/Member/setData',
+        url:domain+'/Member/updateUserData',
         method:'POST',
         dataType:'JSON',
         data:{
@@ -375,7 +378,10 @@ class Communication{
         },
         async: false,
         success:function(res){
-          result = res;
+          //result = res;
+          //console.log(result);
+          //console.log("********************************연결성공");
+          //window.location = domain + '/main/main';
         }
       });
 
