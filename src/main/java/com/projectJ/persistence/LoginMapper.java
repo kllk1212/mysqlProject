@@ -22,4 +22,6 @@ public interface LoginMapper {
 	public int updateRtokenAndfailCnt(MemberInfoDTO dto); // 로그인 성공시 알토큰 저장 + fail카운트 초기화
 	
 	public MemberInfoDTO getOneUserData(String m_refreshToken); // 알토큰주고 회원정보 가져오기
+	
+	public void updateUserData(MemberInfoDTO dto);
 }

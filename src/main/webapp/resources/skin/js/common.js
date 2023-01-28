@@ -1,8 +1,8 @@
 $(function(){
 
 	communication = new Communication();
-	//let domain = "http://localhost:8080";
-	let domain = "http://jaehoon.co.kr";
+	let domain = "http://localhost:8080";
+	//let domain = "http://jaehoon.co.kr";
 	
     // ============================================================
     // ============ Header ========================================
@@ -45,6 +45,8 @@ $(function(){
 		console.log("ping : " + ping);
 		
 		res = communication.userJoin(id,pw,email,phone,ping);
+		console.log("회원가입 완료");
+		window.location = domain + "/main/main";
 		
 
 	}); //$("#signupBtn")
@@ -110,15 +112,38 @@ $(function(){
             success:function(data){
                 console.log("통신성공");
                 console.log(data.data);
-                
+                window.location = domain + "/main/mypage?token=" + data.data;
             },
 			error:function(){		 
 				console.log("통신에러");
 			}
         });
-		
-
 	}); // $("#mypageBtn").on
+	
+	// 마이페이지 수정 버튼 누를경우 
+	$("#myPageModifiyBtn").on('click',function(){
+	
+		let id = $("#m_id").val();
+		let pw = $("#m_pw").val();
+		console.log("********************pw");
+		console.log(pw);
+		if(pw == ""){
+			alert("비밀번호를 입력해주세요");
+
+		}else{
+			let email = $("#m_email").val(); 
+			let phone = $("#m_phone").val();
+			let ping = '0';
+			if($("#m_ping").is(":checked")){
+				ping = '1';
+			}		 
+			 
+			res = communication.updateUserData(id,pw,email,phone,ping);
+			console.log("***************************************");
+			alert("회원정보 수정 완료");
+			window.location = domain + "/main/main";
+		}
+	}); //$("#myPageModifiyBtn").on
 	
 	// (모바일) 헤더 햄버거 버튼 클릭
 	$('#ham').on('click',function(){

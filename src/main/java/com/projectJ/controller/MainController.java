@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.projectJ.dao.Encryption;
 import com.projectJ.domain.MemberInfoDTO;
 import com.projectJ.domain.SciptUtils;
 import com.projectJ.service.LoginService;
@@ -31,7 +34,8 @@ public class MainController {
 	
 	@Autowired
 	private LoginService loginService;
-
+	
+	Encryption dao = new Encryption();
 	
 	@GetMapping("main")				// 메인
 	public void mainGet() {
@@ -40,8 +44,20 @@ public class MainController {
 	}
 	
 	@GetMapping("mypage")
-	@ResponseBody
-	public void mypage() {
+	public void mypage(@RequestParam String token, Model model) {
+
+		String decrypt = dao.decrypt(token);
+		System.out.println("decrypt : " + decrypt);
+		JSONObject json = new JSONObject(decrypt);
+		String m_id = json.getString("m_id");
+		model.addAttribute("m_id", m_id);
+		System.out.println("m_id : " + m_id);
+		String m_email = json.getString("m_email");
+		model.addAttribute("m_email", m_email);
+		String m_phone = json.getString("m_phone");
+		model.addAttribute("m_phone", m_phone);
+		String m_ping = json.getString("m_ping");
+		model.addAttribute("m_ping", m_ping);
 		
 	}
 	

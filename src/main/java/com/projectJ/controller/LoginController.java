@@ -97,7 +97,7 @@ public class LoginController {
 		dto.setM_id(m_id);
 		dto.setM_pw(m_pw);
 		dto.setM_email(m_email);
-		dto.setM_phone(Integer.parseInt(m_phone));
+		dto.setM_phone(m_phone);
 		dto.setM_ping(Integer.parseInt(m_ping));
 		loginService.insertUserData(dto);
 		
@@ -134,6 +134,32 @@ public class LoginController {
 		//model.addAttribute("userData", userData);
 		map.put("data", userData);
 		return map;
+	}
+	@PostMapping("updateUserData")
+	public ModelAndView updateUserData(@RequestParam String token,Model model) {
+		ModelAndView mav = new ModelAndView("jsonView");
+		System.out.println("token : " + token);
+		String decrypt = dao.decrypt(token);
+		System.out.println("decrypt : " + decrypt);
+		JSONObject json = new JSONObject(decrypt);
+		System.out.println("json : " + json);
+		
+		String m_id = json.getString("id");
+		String m_pw = json.getString("pw");
+		String m_email = json.getString("email");
+		String m_phone = json.getString("phone");
+		String m_ping = json.getString("ping");
+		MemberInfoDTO dto = new MemberInfoDTO();
+		dto.setM_id(m_id);
+		dto.setM_pw(m_pw);
+		dto.setM_email(m_email);
+		dto.setM_phone(m_phone);
+		dto.setM_ping(Integer.parseInt(m_ping));
+		loginService.updateUserData(dto);
+		//System.out.println("페이지이동");
+		mav.setViewName("redirect:/main/main");
+		model.addAttribute("res", "200");
+		return mav;
 	}
 	
 }

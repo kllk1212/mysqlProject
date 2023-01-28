@@ -40,6 +40,8 @@
 </select>
 
 
-
+<update id="updateUserData">
+	update memberInfo set m_pw = md5(#{m_pw}), m_email = #{m_email}, m_ping = #{m_ping}, m_phone = #{m_phone} where m_id =#{m_id}
+</update>
 
 </mapper>
