@@ -123,7 +123,7 @@
             position: relative;
             /* prt */
             display: inline-block;
-            font-weight: bold;
+            font-weight: 500;
             // color: #fff;
         }
     }
@@ -310,7 +310,7 @@
             display: inline-block;
             margin-right: 7px;
             color: var(--red);
-            font-weight: bold;
+            font-weight: 500;
         }
 
         &+p {
@@ -884,7 +884,7 @@
 
         &.on {
             border-color: var(--blue);
-            font-weight: bold;
+            font-weight: 500;
             box-shadow: 0 0 2px;
         }
     }
@@ -995,7 +995,7 @@
                 justify-content: space-between;
                 align-items: center;
                 font-size: 1.8rem;
-                font-weight: bold;
+                font-weight: 500;
                 margin: 2rem auto 1rem;
             }
 
@@ -1021,7 +1021,7 @@
                 padding: 0 17px;
                 color: var(--black);
                 text-align: center;
-                font-weight: bold;
+                font-weight: 500;
                 font-size: 1.6rem;
                 border: 2px solid #777;
                 background-color: var(--white);
@@ -1119,7 +1119,7 @@
                 align-items: flex-end;
                 text-align: center;
                 width: 100%;
-                font-weight: bold;
+                font-weight: 500;
                 color: #fff;
                 z-index: 2;
 
@@ -1326,7 +1326,7 @@
         width: 90%;
         max-width: 500px;
         height: 220px;
-        font-weight: bold;
+        font-weight: 500;
         font-size: 2rem;
     }
 }

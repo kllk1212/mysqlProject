@@ -1,7 +1,11 @@
 button.turnBtn{background-color:gray;}
 button.turnBtn.leeActive{background-color:var(--blue);}
-body {
-    font-weight: 500;
+body,h1,h2,h3,h4,input,button,select,option {
+    font-family: 'NexonMaplestory' !important;
+}
+
+h1, h2, h3, h4, th, input, button, option{
+	font-weight: 500;
 }
 
 .admin_1 .inwrap{

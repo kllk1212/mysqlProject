@@ -55,9 +55,9 @@
 .tr-i{text-align:right !important;}
 
 /* font-weight */
-.fwl{font-weight: lighter !important;}
-.fwn{font-weight: normal !important;}
-.fwb{font-weight: bold !important;}
+.fwl{font-weight: 300 !important;}
+.fwn{font-weight: 400 !important;}
+.fwb{font-weight: 500 !important;}
 
 /* border */
 .btx{border-top:none !important;}
