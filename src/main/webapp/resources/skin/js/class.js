@@ -273,15 +273,17 @@ class Communication{
 
     }
 
-    userJoin(id,pw,email,phone,ping){
+    userJoin(id,pw,nickName,email,phone,gender,ping){
 
         const obj = new Object;
         var result;
 
         obj.id = id;
         obj.pw = pw;
+        obj.nickName = nickName;
         obj.email = email;
         obj.phone = phone;
+        obj.gener = gender;
         obj.ping = ping;
 
         const token = this.encryption.encrypt(JSON.stringify(obj));
@@ -297,10 +299,10 @@ class Communication{
             success:function(res){
                 result = res;
                 console.log("*******************");
+                window.location = domain + "/main/signupComplete";
             }
         });
-
-        return result;
+        //return result;
 
 
     }

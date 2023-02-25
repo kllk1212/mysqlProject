@@ -78,9 +78,29 @@ public class LoginController {
 		}		
 	};
 	
+	@PostMapping("/idChk")
+	public Map<Object,Object> idChk(@RequestParam String id) {
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		int result = loginService.idChk(id);
+		map.put("result", result);
+
+		return map;
+	}
+	@PostMapping("/nickChk")
+	public Map<Object,Object> nickChk(@RequestParam String nickName, Model model) {
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		int result = loginService.nickChk(nickName);
+		map.put("result", result);
+		
+		return map;
+	}
+	
+	
+	
+	
 	@PostMapping("/signup") 			// 회원가입 정보 입력 후 
-	public ModelAndView signupPost(@RequestParam String token) {
-		ModelAndView mav = new ModelAndView("jsonView");
+	public Map<Object,Object> signupPost(@RequestParam String token) {
+		Map<Object, Object> map = new HashMap<Object, Object>();
 		log.info("*********signupPost 진입");
 		log.info("암호화된 넘어온 데이터  : " + token);
 		String decrypt = dao.decrypt(token);
@@ -90,21 +110,26 @@ public class LoginController {
 		
 		String m_id = json.getString("id");
 		String m_pw = json.getString("pw");
+		String m_nickName = json.getString("nickName");
 		String m_email = json.getString("email");
 		String m_phone = json.getString("phone");
+		String m_gender = json.getString("gender");
 		String m_ping = json.getString("ping");
 		MemberInfoDTO dto = new MemberInfoDTO();
 		dto.setM_id(m_id);
 		dto.setM_pw(m_pw);
+		dto.setM_nickName(m_nickName);
 		dto.setM_email(m_email);
 		dto.setM_phone(m_phone);
+		dto.setM_gender(m_gender);
 		dto.setM_ping(Integer.parseInt(m_ping));
 		loginService.insertUserData(dto);
 		
-		mav.setViewName("redirect:/main/signupComplete");
+		//mav.setViewName("redirect:/main/signupComplete");
+		map.put("result", 1);
 		
 		
-		return mav;
+		return map;
 	}
 	
 	@PostMapping("mypage")

@@ -5,16 +5,20 @@
   
   
 <mapper namespace="com.projectJ.persistence.LoginMapper">
-
-<insert id="insertUserData">
-	insert into memberInfo(m_idx,m_id, m_pw, m_email, m_phone, m_ping, m_failCnt, m_regDate, m_fixDate, m_lastDate, m_status) 
-	values(last_insert_id()+1,#{m_id},md5(#{m_pw}),#{m_email},#{m_phone},#{m_ping},0,now(),now(),now(),1)
-</insert>
-
-
+<!-- 회원가입 아이디,닉네임체크 -->
 <select id="idChk" resultType="int">
 	select count(*) from memberInfo where m_Id = #{m_id}
 </select>
+<select id="nickChk" resultType="int">
+	select count(*) from memberInfo where m_Id = #{m_nickName}
+</select>
+
+<insert id="insertUserData">
+	insert into memberInfo(m_id, m_pw, m_nickName ,m_email, m_phone,m_gender ,m_ping, m_failCnt, m_regDate, m_fixDate, m_lastDate, m_status) 
+	values(#{m_id},md5(#{m_pw}),#{m_nickName} ,#{m_email},#{m_gender},#{m_phone},#{m_ping},0,now(),now(),now(),1)
+</insert>
+
+
 <select id="idPwChk" resultType="int">
 	select count(*) from memberInfo where m_Id = #{m_id} and m_pw = md5(#{m_pw})
 </select>

@@ -87,6 +87,16 @@ public class LoginServiceImpl implements LoginService{
 	public void updateUserData(MemberInfoDTO dto) {
 		mapper.updateUserData(dto);
 	}
+
+	@Override
+	public int idChk(String id) {
+		return mapper.idChk(id);
+	}
+
+	@Override
+	public int nickChk(String nickName) {
+		return mapper.nickChk(nickName);
+	}
 	
 
 

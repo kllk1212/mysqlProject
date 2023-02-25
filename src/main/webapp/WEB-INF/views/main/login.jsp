@@ -25,9 +25,12 @@
 		</form>
 		<div class="joinTxt pt-A center-f">
 			<p><strong>아직도 회원이 아니세요?</strong></p>
-			<button type="button">
-				<a href="/main/signup">회원가입</a>
-			</button>
+			<button type="button" onclick="window.location='/main/signup'">회원가입</button>
+		</div>
+		<div style="text-align:center;">
+			<a href=" "><img src="/resources/skin/img/login/kakao.png" width="150" ></a>
+			</br>
+			<a><img src="/resources/skin/img/login/naver.png" width="150" ></a>
 		</div>
 	</section>
 </div>

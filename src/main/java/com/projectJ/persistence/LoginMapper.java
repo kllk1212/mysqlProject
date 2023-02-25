@@ -6,6 +6,9 @@ import com.projectJ.domain.MemberInfoDTO;
 
 @Mapper
 public interface LoginMapper {
+	
+	public int idChk(String id); // 회원가입전 아이디 중복체크
+	public int nickChk(String nickName); // 회원가입전 닉네임 중복체크
 
 	public int insertUserData(MemberInfoDTO userDTO); // 회원가입기능
 	
