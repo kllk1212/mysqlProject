@@ -97,6 +97,11 @@ public class LoginServiceImpl implements LoginService{
 	public int nickChk(String nickName) {
 		return mapper.nickChk(nickName);
 	}
+
+	@Override
+	public int insertUserDataNaver(MemberInfoDTO userDTO) {
+		return mapper.insertUserDataNaver(userDTO);
+	}
 	
 
 

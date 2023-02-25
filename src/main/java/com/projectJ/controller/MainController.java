@@ -86,6 +86,10 @@ public class MainController {
 	public void signupCompleteGet() {
 		log.info("signupComplete ***** 진입");
 	}
+	@GetMapping("naverSignup")
+	public void naverSignup() {
+		
+	}
 	
 	
 	

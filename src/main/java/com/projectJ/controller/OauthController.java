@@ -1,5 +1,7 @@
 package com.projectJ.controller;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +9,6 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
@@ -15,24 +16,30 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
+import com.projectJ.dao.Encryption;
 import com.projectJ.dao.OauthDAO;
 import com.projectJ.domain.MemberInfoDTO;
+import com.projectJ.service.LoginService;
 
 
 @Controller
 @RequestMapping("/login/oauth2/code")
 public class OauthController {
+
 	
-	// 비밀번호 암호화를 위한 객체 자동 주입 
 	@Autowired
-	private BCryptPasswordEncoder bcryptPasswordEncoder;
+	private LoginService service;
+	
+	Encryption encryption = new Encryption();
+	
+	String domain = "localhost";
+	//String domain = "jaehoon.co.kr";
 	
 	
 	@GetMapping("/naver")
-	public String naverOauth(@RequestParam String code, @RequestParam String state, HttpSession session,Model model) {
+	public String naverOauth(@RequestParam String code, @RequestParam String state, HttpSession session,Model model,HttpServletResponse response) {
         // RestTemplate 인스턴스 생성
         RestTemplate rt = new RestTemplate();
 
@@ -95,17 +102,28 @@ public class OauthController {
         int result = service.idChk(id);
         if(result == 0) { // 회원가입처리
         	MemberInfoDTO vo = new MemberInfoDTO();
-        	vo.setUserId(id);
-        	vo.setUserPw(bcryptPasswordEncoder.encode(id));
-        	vo.setEmail(email);
-        	vo.setUserName(korName);
-        	vo.setGender(gender);
+        	vo.setM_id(id);
+        	//vo.setM_pw(bcryptPasswordEncoder.encode(id));
+        	vo.setM_email(email);
+        	//vo.setUserName(korName);
+        	vo.setM_gender(gender);
         	model.addAttribute("vo", vo);
-        	return "/common/naverSignup";
+        	
+        	// 실명
+        	model.addAttribute("name", korName);
+        	return "/main/naverSignup";
         	
         }else {	// 로그인처리
-        	model.addAttribute("id", id);
-        	return "/common/oauthLogin";
+        	//model.addAttribute("id", id);
+        	
+    		Cookie cookie = new Cookie("token",encryption.encrypt(id));
+    		cookie.setDomain(domain);
+    		cookie.setPath("/");
+    		// 2일간 저장
+    		cookie.setMaxAge(60*60*24*2);
+    		cookie.setSecure(true);
+    		response.addCookie(cookie);
+        	return "/main/main";
         	
         }
     }
@@ -162,9 +180,9 @@ public class OauthController {
 		
 		int result = service.idChk(id);
 		if(result == 0) {	//회원가입
-			MemberVO vo = new MemberVO();
-			vo.setUserId(id);
-			vo.setUserPw(bcryptPasswordEncoder.encode(id));
+			MemberInfoDTO vo = new MemberInfoDTO();
+			vo.setM_id(id);
+			//vo.setM_pw(bcryptPasswordEncoder.encode(id));
 			model.addAttribute("vo", vo);
 			return "/common/kakaoSignup";
 			
@@ -174,4 +192,5 @@ public class OauthController {
         }
 		
 	} // 카카오끝
+
 }

@@ -55,8 +55,8 @@
             <header id="header" class="header">
                 <div class="header_wrap layout_wrap">
                     <div class="header_logo">
-                        <a href="../main/main">
-                            <img src="../resources/skin/img/common/logo.png" alt="창업나무">
+                        <a href="/main/main">
+                            <img src="/resources/skin/img/common/logo.png" alt="창업나무">
                         </a>
                     </div>
                     <div class="header_menu">
@@ -65,17 +65,17 @@
                             <ul id="gnb" class="gnb">
                                 <li><a href="../main/main">홈</a></li>
                                 <li class="depth">
-                                    <a href="../diagnosis/diagnosisMain">프렌차이즈 정보</a>
+                                    <a href="/diagnosis/diagnosisMain">프렌차이즈 정보</a>
                                 </li>
-                                <li><a href="../franchise/incomeCalcMain">순이익 계산기</a></li>
-                                <li><a href="../main/siteInfo">사이트 소개</a></li>
+                                <li><a href="/franchise/incomeCalcMain">순이익 계산기</a></li>
+                                <li><a href="/main/siteInfo">사이트 소개</a></li>
                             </ul>
                         </nav>
 
                         <div class="header_right">
                             <div class="inwrap">
                                 <div class="btnBox loginDiv" id ="loginDiv">
-                                    <button type="button" onclick="location.href='../main/login' ">로그인 <span class="vP">및 회원가입</span></button>
+                                    <button type="button" onclick="location.href='/main/login' ">로그인 <span class="vP">및 회원가입</span></button>
                                 </div>
                                 <div class="btnBox logoutDiv" id ="logoutDiv">
                                     <button type="button" id ="logoutBtn">로그아웃</button>

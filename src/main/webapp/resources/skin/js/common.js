@@ -30,95 +30,6 @@ $(function(){
         $(this).find('div').fadeOut();
     });
     
-    /*
-    // 회원가입 아이디 중복체크 클릭시
-    $("#idChk").on("click",function(e){
-    	let id = $("#m_id").val();
-    	console.log("아이디중복체크 클릭");
- 		$.ajax({
-            url:domain+'/Member/idChk',
-            method:'POST',
-            dataType:'JSON',
-            data:{
-                'id':id
-            },
-            async: false,
-            success:function(data){
-                console.log(data.result);
-                // 중복시 1 사용가능시 0
-                if(data.result == 1 ){
-                	alert("중복된 아이디 입니다.");
-                }else if(data.result == 0) {
-                	alert("가입가능한 아이디 입니다.");
-                	$("#m_id").attr("readonly",true);
-                	$("#idChk").hide();
-                }
-                
-            },
-			error:function(){		 
-				console.log("통신에러");
-			}
-        });   	
-    	
-    	
-    }); //$("#idChk")
-    
-    // 회원가입 닉네임 중복체크 클릭시
-    $("#nickChk").on("click",function(e){
-    	let nickName = $("#m_nickName").val();
-     		$.ajax({
-            url:domain+'/Member/nickChk',
-            method:'POST',
-            dataType:'JSON',
-            data:{
-                'nickName':nickName
-            },
-            async: false,
-            success:function(data){
-                console.log(data.result);
-                // 중복시 1 사용가능시 0
-                if(data.result == 1 ){
-                	alert("중복된 닉네임 입니다.");
-                }else if(data.result == 0) {
-                	alert("사용가능한 닉네임 입니다.");
-                	$("#m_nickName").attr("readonly",true);
-                	$("#nickChk").hide();
-                }
-                
-            },
-			error:function(){		 
-				console.log("통신에러");
-			}
-        });   	
-    	
-    
-    }); //$("#nickChk")
-    
-    // 회원가입 새로고침 클릭시
-    $("#resetBtn").on("click",function(e){
-    	location.reload();
-    });
-      
-    // 회원가입 버튼 클릭시
-    $("#signupBtn").on("click",function(e){
-		console.log("회원가입 버튼 클릭");
-		let id = $("#m_id").val();
-		let pw = $("#m_pw").val();
-		let email = $("#m_email").val(); 
-		let nickName = $("#m_nickName").val(); 
-		let phone = $("#m_phone").val(); 
-		let gender = $("#m_gender").val(); 
-		let ping = $("#m_ping").val(); 
-		
-		
-		res = communication.userJoin(id,pw,nickName,email,phone,gender,ping);
-		console.log("회원가입 완료");
-		alert("회원가입 완료");
-		window.location = domain + "/main/main";
-		
-
-	}); //$("#signupBtn")
-	*/
 	// 로그인 버튼 클릭시
 	$("#loginBtn").on("click",function(e){
 		console.log("로그인버튼 클릭");
@@ -150,7 +61,7 @@ $(function(){
 	  	deleteCookie('token');
 		
 
-		setTimeout("window.location = 'main'", 1000);
+		setTimeout("window.location = domain+'/main/main'", 1000);
 		
 	});
 	//마이페이지 버튼 클릭시 

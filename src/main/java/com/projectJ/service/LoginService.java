@@ -8,6 +8,7 @@ public interface LoginService {
 	public int nickChk(String nickName); // 회원가입전 닉네임 중복체크
 	
 	public int insertUserData(MemberInfoDTO userDTO); // 회원가입기능
+	public int insertUserDataNaver(MemberInfoDTO userDTO); // 회원가입기능 네이버
 	
 	public int idPwChk(MemberInfoDTO dto);
 

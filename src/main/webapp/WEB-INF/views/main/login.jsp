@@ -28,9 +28,9 @@
 			<button type="button" onclick="window.location='/main/signup'">회원가입</button>
 		</div>
 		<div style="text-align:center;">
-			<a href=" "><img src="/resources/skin/img/login/kakao.png" width="150" ></a>
+			<a><img src="/resources/skin/img/login/kakao.png" width="150" ></a>
 			</br>
-			<a><img src="/resources/skin/img/login/naver.png" width="150" ></a>
+			<a href="https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=xGYVtGy2jTxj9ocjlhyj&state=state&redirect_uri=http://localhost:8080/login/oauth2/code/naver"><img src="/resources/skin/img/login/naver.png" width="150" ></a>
 		</div>
 	</section>
 </div>

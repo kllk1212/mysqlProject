@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -131,6 +132,35 @@ public class LoginController {
 		
 		return map;
 	}
+	@PostMapping("/signupNaver")
+	public Map<Object,Object> signupNaver(@RequestParam String token){
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		System.out.println("token : " + token);
+		log.info("*********signupPost 진입");
+		log.info("암호화된 넘어온 데이터  : " + token);
+		String decrypt = dao.decrypt(token);
+		System.out.println("decrypt : " + decrypt);
+		
+		JSONObject json = new JSONObject(decrypt);
+		
+		String m_id = json.getString("id");
+		String m_nickName = json.getString("nickName");
+		String m_email = json.getString("email");
+		String m_phone = json.getString("phone");
+		String m_gender = json.getString("gender");
+		String m_ping = json.getString("ping");
+		MemberInfoDTO dto = new MemberInfoDTO();
+		dto.setM_id(m_id);
+		dto.setM_nickName(m_nickName);
+		dto.setM_email(m_email);
+		dto.setM_phone(m_phone);
+		dto.setM_gender(m_gender);
+		dto.setM_ping(Integer.parseInt(m_ping));
+		loginService.insertUserDataNaver(dto);		
+		return map;
+		
+	}
+	
 	
 	@PostMapping("mypage")
 	public Map<String, String> mypageGet(@RequestParam String token,Model model) {
