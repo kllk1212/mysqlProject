@@ -338,6 +338,38 @@ class Communication{
 
 
     }
+    userJoinKakao(id,nickName,email,phone,gender,ping){
+
+        const obj = new Object;
+        var result;
+
+        obj.id = id;
+        obj.nickName = nickName;
+        obj.email = email;
+        obj.phone = phone;
+        obj.gender = gender;
+        obj.ping = ping;
+
+        const token = this.encryption.encrypt(JSON.stringify(obj));
+
+        $.ajax({
+            url:domain+'/Member/signupKakao',
+            method:'POST',
+            dataType:'JSON',
+            data:{
+                'token':token
+            },
+            async: false,
+            success:function(res){
+                result = res;
+                console.log("*******************");
+                window.location = domain + "/main/signupComplete";
+            }
+        });
+        //return result;
+
+
+    }
     loginConfirm(sno,pw){
 
       const obj = new Object;

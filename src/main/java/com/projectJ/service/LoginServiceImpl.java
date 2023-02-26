@@ -102,6 +102,11 @@ public class LoginServiceImpl implements LoginService{
 	public int insertUserDataNaver(MemberInfoDTO userDTO) {
 		return mapper.insertUserDataNaver(userDTO);
 	}
+
+	@Override
+	public int insertUserDataKakao(MemberInfoDTO userDTO) {
+		return mapper.insertUserDataKakao(userDTO);
+	}
 	
 
 

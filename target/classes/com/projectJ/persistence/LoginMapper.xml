@@ -10,7 +10,7 @@
 	select count(*) from memberInfo where m_Id = #{m_id}
 </select>
 <select id="nickChk" resultType="int">
-	select count(*) from memberInfo where m_Id = #{m_nickName}
+	select count(*) from memberInfo where m_nickName = #{m_nickName}
 </select>
 
 <insert id="insertUserData">
@@ -20,6 +20,10 @@
 <insert id="insertUserDataNaver">
 	insert into memberInfo(m_id, m_pw, m_nickName ,m_email, m_phone,m_gender ,m_ping, m_failCnt, m_regDate, m_fixDate, m_lastDate, m_status, m_route) 
 	values(#{m_id},md5(#{m_pw}),#{m_nickName} ,#{m_email},#{m_phone},#{m_gender},#{m_ping},0,now(),now(),now(),1,'naver')
+</insert>
+<insert id="insertUserDataKakao">
+	insert into memberInfo(m_id, m_pw, m_nickName ,m_email, m_phone,m_gender ,m_ping, m_failCnt, m_regDate, m_fixDate, m_lastDate, m_status, m_route) 
+	values(#{m_id},md5(#{m_pw}),#{m_nickName} ,#{m_email},#{m_phone},#{m_gender},#{m_ping},0,now(),now(),now(),1,'kakao')
 </insert>
 
 

@@ -4,6 +4,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -18,7 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.projectJ.dao.Encryption;
+import com.projectJ.dao.Jwt;
 import com.projectJ.dao.OauthDAO;
 import com.projectJ.domain.MemberInfoDTO;
 import com.projectJ.service.LoginService;
@@ -30,7 +36,7 @@ public class OauthController {
 
 	
 	@Autowired
-	private LoginService service;
+	private LoginService loginService;
 	
 	Encryption encryption = new Encryption();
 	
@@ -39,7 +45,7 @@ public class OauthController {
 	
 	
 	@GetMapping("/naver")
-	public String naverOauth(@RequestParam String code, @RequestParam String state, HttpSession session,Model model,HttpServletResponse response) {
+	public String naverOauth(@RequestParam String code, @RequestParam String state, HttpSession session,Model model,HttpServletResponse httpServletResponse) {
         // RestTemplate 인스턴스 생성
         RestTemplate rt = new RestTemplate();
 
@@ -99,7 +105,7 @@ public class OauthController {
         System.out.println("************** 이메일 : " + email);
         System.out.println("************** 이름 : " + korName);
         System.out.println("************** 성별 : " + gender);
-        int result = service.idChk(id);
+        int result = loginService.idChk(id);
         if(result == 0) { // 회원가입처리
         	MemberInfoDTO vo = new MemberInfoDTO();
         	vo.setM_id(id);
@@ -114,22 +120,39 @@ public class OauthController {
         	return "/main/naverSignup";
         	
         }else {	// 로그인처리
-        	//model.addAttribute("id", id);
-        	
-    		Cookie cookie = new Cookie("token",encryption.encrypt(id));
+			MemberInfoDTO vo = new MemberInfoDTO();
+			vo.setM_id(id);
+			
+			Jwt jwt = new Jwt();
+			int m_idx = loginService.getIdx(vo);
+			String accessToken = jwt.createAccessToken(m_idx);
+			String refreshToken = jwt.createRefreshToken(m_idx);
+			String text = "{"+"\"" + "accessToken" + "\":\"" + accessToken +"\"" 
+			+ "," + "\"" + "refreshToken" + "\":\"" + refreshToken + "\"" + "}";			
+			// 엑세스 토큰 안에 리플레쉬 토큰도 같이 있음
+			//String text = "{"+"\"" + "accessToken" + "\":\"" + jwt.createAccessToken(m_idx,jwt.createRefreshToken()) +"\"" + "}";	
+			System.out.println("text : " + text);
+			String tokens = encryption.encrypt(text);
+			// 리플레시 토큰 디비에 저장하기 
+			// 로그인 성공시 로그인실패카운트 초기화 0
+			vo.setM_idx(m_idx);// 유저 고유번호
+			vo.setM_refreshToken(refreshToken); // 리플래쉬 토큰
+			int updateRtokenAndfailCnt = loginService.updateRtokenAndfailCnt(vo);
+			
+    		Cookie cookie = new Cookie("token",encryption.encrypt(text));        	
     		cookie.setDomain(domain);
     		cookie.setPath("/");
     		// 2일간 저장
     		cookie.setMaxAge(60*60*24*2);
     		cookie.setSecure(true);
-    		response.addCookie(cookie);
+    		httpServletResponse.addCookie(cookie);
         	return "/main/main";
         	
         }
     }
 	
 	@GetMapping("/kakao")
-	public String kakaoOauth(@RequestParam String code,Model model,HttpSession session) {
+	public String kakaoOauth(@RequestParam String code,Model model,HttpSession session, HttpServletResponse httpServletResponse) {
 		// 카카오에 POST방식으로 key=value 데이터를 요청함. RestTemplate를 사용하면 요청을 편하게 할 수 있다.
 		RestTemplate rt = new RestTemplate();
 		// HttpHeader 오브젝트 생성
@@ -173,22 +196,46 @@ public class OauthController {
 			kakaoRequest1,
 			String.class
 		);		
+
 		String userData = profileResponse.getBody();
-		String data[] = userData.split(",");
-		String id = data[0].substring(6, data[0].length());
-		System.out.println("*********************************id : "+id);
+
 		
-		int result = service.idChk(id);
+		System.out.println("카카오에서 넘어온 데이터 : " + userData);
+		String data[] = userData.split(",");
+		System.out.println("카카오에서 넘어온 데이터 : " + data);
+
+
+		String id = data[0].substring(6, data[0].length());
+		String name = data[2].substring(26, data[2].length()-1);
+		
+		int result = loginService.idChk(id);
 		if(result == 0) {	//회원가입
 			MemberInfoDTO vo = new MemberInfoDTO();
 			vo.setM_id(id);
 			//vo.setM_pw(bcryptPasswordEncoder.encode(id));
+			model.addAttribute("name", name);
 			model.addAttribute("vo", vo);
-			return "/common/kakaoSignup";
+			return "/main/kakaoSignup";
 			
 		}else {		// 로그인처리
-        	model.addAttribute("id", id);
-        	return "/common/oauthLogin";
+			MemberInfoDTO vo = new MemberInfoDTO();
+			vo.setM_id(id);
+			Jwt jwt = new Jwt();
+			int m_idx = loginService.getIdx(vo);
+			String accessToken = jwt.createAccessToken(m_idx);
+			String refreshToken = jwt.createRefreshToken(m_idx);
+			
+			String text = "{"+"\"" + "accessToken" + "\":\"" + accessToken +"\"" 
+			+ "," + "\"" + "refreshToken" + "\":\"" + refreshToken + "\"" + "}";			
+			
+    		Cookie cookie = new Cookie("token",encryption.encrypt(text));
+    		cookie.setDomain(domain);
+    		cookie.setPath("/");
+    		// 2일간 저장
+    		cookie.setMaxAge(60*60*24*2);
+    		cookie.setSecure(true);
+    		httpServletResponse.addCookie(cookie);
+        	return "/main/main";
         }
 		
 	} // 카카오끝

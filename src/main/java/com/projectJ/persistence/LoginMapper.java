@@ -12,6 +12,7 @@ public interface LoginMapper {
 
 	public int insertUserData(MemberInfoDTO userDTO); // 회원가입기능
 	public int insertUserDataNaver(MemberInfoDTO userDTO); // 회원가입기능 네이버
+	public int insertUserDataKakao(MemberInfoDTO userDTO); // 회원가입기능 카카오
 	
 	public int idChk(MemberInfoDTO dto);  // 아이디 확인
 	

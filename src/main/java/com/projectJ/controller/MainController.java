@@ -91,6 +91,11 @@ public class MainController {
 		
 	}
 	
+	@GetMapping("kakaoSignup")
+	public void kakaoSignup() {
+		
+	}
+	
 	
 	
 }

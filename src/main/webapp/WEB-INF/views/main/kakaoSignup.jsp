@@ -5,17 +5,20 @@
 
 <!-- header 복붙 -->
 <%@ include file="../includes/header.jsp"%>
+
 <script defer src="/resources/skin/js/signup.js"></script>
+
+
 <div id="contents" class="contents signup page center-f"
 	data-id="signup">
 	<section class="section s-signup">
-		<form id="naverSignupForm">
+		<form id="kakaoSignupForm">
 			<input type="hidden" name="m_id" id="m_id" value="${vo.m_id}">
-			<h2>네이버로 회원가입</h2>
+			<h2>회원가입</h2>
 			<table>
 				<tr>
 					<th>이름</th>
-					<td><input type="text" value="${name }"  readonly="readonly"></td>
+					<td><input type="text" value="${name}" readonly="readonly"></td>
 				</tr>
 				<tr>
 					<th class="fx alc jsb">닉네임 <button type="button" id="nickChk">중복체크</button></th>
@@ -24,7 +27,8 @@
 				</tr>
 				<tr>
 					<th>이메일</th>
-					<td><input type="email" name="m_email" id="m_email" value="${vo.m_email }" readonly="readonly"></td>
+					<td><input type="email" name="m_email" id="m_email" required
+						placeholder="이메일 주소를 입력해주세요 (Namu@naver.com)"></td>
 				</tr>
 				<tr>
 					<th>휴대폰번호</th>
@@ -33,23 +37,13 @@
 				</tr>
 				<tr>
 					<th>성별</th>
-					
-					<c:if test="${vo.m_gender == 'male' }">
-					<td>
-						<select name="m_gender" id="m_gender" >
-							<option value="" disabled>성별 선택</option>
-						    <option value="male">남</option>
-						</select>
-					</td>					
-					</c:if>
-					<c:if test="${vo.m_gender == 'female' }">
 					<td>
 						<select name="m_gender" id="m_gender">
 						    <option value="" disabled>성별 선택</option>
+						    <option value="male">남</option>
 						    <option value="female">여</option>
 						</select>
 					</td>
-					</c:if>
 	
 				</tr>
 				<tr>
@@ -60,11 +54,11 @@
 					</label></td>
 				</tr>
 			</table>
-			<button id ="naverSignupBtn" type="button">가입하기</button>
+			<button id ="kakaoSignupBtn" type="button">가입하기</button>
+			
 		</form>
 	</section>
 </div>
-
 
 
 

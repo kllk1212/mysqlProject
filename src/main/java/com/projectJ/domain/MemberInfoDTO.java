@@ -21,4 +21,5 @@ public class MemberInfoDTO {
 	private Date m_fixDate;		// 정보수정일
 	private Date m_lastDate;	// 마지막 접속일
 	private String m_refreshToken; // 리플레쉬 토큰
+	private String m_route;		// 가입경로
 }

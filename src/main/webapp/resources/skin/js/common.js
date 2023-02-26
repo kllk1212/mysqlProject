@@ -66,6 +66,7 @@ $(function(){
 	});
 	//마이페이지 버튼 클릭시 
 	$("#mypageBtn").on("click",function(e){
+		console.log("마이페이지 버튼 클릭");
 		function getCookie(cName) {
 			cName = cName + '=';
 			var cookieData = document.cookie;

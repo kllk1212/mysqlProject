@@ -160,6 +160,34 @@ public class LoginController {
 		return map;
 		
 	}
+	@PostMapping("/signupKakao")
+	public Map<Object,Object> signupKakao(@RequestParam String token){
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		System.out.println("token : " + token);
+		log.info("*********signupPost 진입");
+		log.info("암호화된 넘어온 데이터  : " + token);
+		String decrypt = dao.decrypt(token);
+		System.out.println("decrypt : " + decrypt);
+		
+		JSONObject json = new JSONObject(decrypt);
+		
+		String m_id = json.getString("id");
+		String m_nickName = json.getString("nickName");
+		String m_email = json.getString("email");
+		String m_phone = json.getString("phone");
+		String m_gender = json.getString("gender");
+		String m_ping = json.getString("ping");
+		MemberInfoDTO dto = new MemberInfoDTO();
+		dto.setM_id(m_id);
+		dto.setM_nickName(m_nickName);
+		dto.setM_email(m_email);
+		dto.setM_phone(m_phone);
+		dto.setM_gender(m_gender);
+		dto.setM_ping(Integer.parseInt(m_ping));
+		loginService.insertUserDataKakao(dto);		
+		return map;
+		
+	}
 	
 	
 	@PostMapping("mypage")
@@ -183,10 +211,11 @@ public class LoginController {
 		+ "," + "\"" + "m_email" + "\":\"" + oneUserData.getM_email()+ "\"" 
 		+ "," + "\"" + "m_ping" + "\":\"" + oneUserData.getM_ping()+ "\""
 		+ "," + "\"" + "m_phone" + "\":\"" + oneUserData.getM_phone()+ "\""
+		+ "," + "\"" + "m_route" + "\":\"" + oneUserData.getM_route()+ "\""
 		+ "}";
 		System.out.println("text :" +text);
 		String userData = dao.encrypt(text);
-		//model.addAttribute("userData", userData);
+		model.addAttribute("m_route", oneUserData.getM_route());
 		map.put("data", userData);
 		return map;
 	}

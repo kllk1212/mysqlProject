@@ -9,6 +9,7 @@ public interface LoginService {
 	
 	public int insertUserData(MemberInfoDTO userDTO); // 회원가입기능
 	public int insertUserDataNaver(MemberInfoDTO userDTO); // 회원가입기능 네이버
+	public int insertUserDataKakao(MemberInfoDTO userDTO); // 회원가입기능 카카오
 	
 	public int idPwChk(MemberInfoDTO dto);
 
