@@ -429,6 +429,37 @@
   margin-left: 1.5rem;
 }
 
+.join-sns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+}
+.join-sns button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 49%;
+  background-color: #fff;
+  border: 1px solid var(--blue);
+  color: #222;
+}
+
+[class^=ico] {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+}
+
+.ico-naver {
+  background: url(../img/login/icon-naver.png) no-repeat center/cover;
+}
+
+.ico-kakao {
+  background: url(../img/login/icon-kakao.png) no-repeat center/cover;
+}
+
 .s-signupComplete {
   display: flex;
   flex-direction: column;
