@@ -51,7 +51,7 @@
                 </form>
                 </c:if>
                 <c:if test="${m_route == 'naver'}">
-                <form id="mypageFormNaver">
+                <form id="mypageForm">
                     <h2 class="tc">회원정보수정</h2>
                     <table>
                         <tr>
@@ -60,11 +60,6 @@
                                 <input type="text" name="m_id" id="m_id" class="readonly" value="${m_id}" readonly>
                             </td>
                         </tr>
-                        <tr>
-                            <th>변경비밀번호</th>
-                            <td>
-                                <input type="password" name="m_pw" id="m_pw" placeholder="비밀번호를 입력해주세요">
-                            </td>
                         </tr>
                         <tr>
                             <th>이메일</th>
@@ -92,20 +87,14 @@
                     <button id ="myPageModifiyBtn" type="button">수정하기</button>
                 </form>                    
                 </c:if>
-                <c:if test="${m_route == 'naver'}">
-                <form id="mypageFormNaver">
+                <c:if test="${m_route == 'kakao'}">
+                <form id="mypageForm">
                     <h2 class="tc">회원정보수정</h2>
                     <table>
                         <tr>
                             <th>아이디</th>
                             <td>
                                 <input type="text" name="m_id" id="m_id" class="readonly" value="${m_id}" readonly>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>변경비밀번호</th>
-                            <td>
-                                <input type="password" name="m_pw" id="m_pw" placeholder="비밀번호를 입력해주세요">
                             </td>
                         </tr>
                         <tr>

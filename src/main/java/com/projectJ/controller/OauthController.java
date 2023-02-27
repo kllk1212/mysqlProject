@@ -227,6 +227,13 @@ public class OauthController {
 			
 			String text = "{"+"\"" + "accessToken" + "\":\"" + accessToken +"\"" 
 			+ "," + "\"" + "refreshToken" + "\":\"" + refreshToken + "\"" + "}";			
+			String tokens = encryption.encrypt(text);
+			// 리플레시 토큰 디비에 저장하기 
+			// 로그인 성공시 로그인실패카운트 초기화 0
+			vo.setM_idx(m_idx);// 유저 고유번호
+			vo.setM_refreshToken(refreshToken); // 리플래쉬 토큰
+			int updateRtokenAndfailCnt = loginService.updateRtokenAndfailCnt(vo);
+			
 			
     		Cookie cookie = new Cookie("token",encryption.encrypt(text));
     		cookie.setDomain(domain);
