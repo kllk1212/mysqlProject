@@ -373,12 +373,37 @@
   padding-top: 4rem;
 }
 
+.s-signup {
+  width: 420px;
+  margin: 0 auto;
+  /* 회원가입 탭 버튼 */
+  /* 일반 회원가입 폼태그 */
+}
+.s-signup .tab-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.s-signup .tab-button {
+  width: 49%;
+}
+.s-signup .tab-button.on {
+  background-color: var(--blue);
+}
+.s-signup .tab-content {
+  display: none;
+  width: 100%;
+  margin-top: 2rem;
+}
 .s-signup form {
   width: 385px;
   text-align: center;
+  padding-bottom: 4rem;
 }
 .s-signup form tr {
   flex-direction: column;
+}
+.s-signup form th button {
+  height: 3.8rem;
 }
 .s-signup form td {
   padding-top: 1rem;
@@ -429,6 +454,9 @@
   margin-left: 1.5rem;
 }
 
+/* 
+*** sns 로그인 및 회원가입 버튼
+*/
 .join-sns {
   display: flex;
   align-items: center;
@@ -443,6 +471,29 @@
   background-color: #fff;
   border: 1px solid var(--blue);
   color: #222;
+}
+
+.signup-sns {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.signup-sns button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 6rem;
+  background-color: #fff;
+  border: 1px solid var(--blue);
+  color: #222;
+}
+.signup-sns button + button {
+  margin-top: 4rem;
 }
 
 [class^=ico] {

@@ -18,7 +18,25 @@ $(function(){
     	});           
     });
 	
-
+	// =========================================
+	// 일반회원가입 + 간편회원가입 탭
+	// =========================================
+	// 처음 로딩 시 
+	$(".tab-button").addClass('turnBtn');
+	$(".tab-content").hide();
+	
+	$(".tab-button").eq(0).removeClass('turnBtn');
+	$(".tab-content").eq(0).show();
+	
+	// 버튼 클릭 시
+	$(".tab-button").on('click',function(){
+		let idx = $(this).index();
+		$(this).removeClass('turnBtn');
+		$(this).siblings('button').addClass('turnBtn');
+		$(".tab-content").eq(idx).siblings().hide();
+		$(".tab-content").eq(idx).fadeIn();
+	});
+	
     // 회원가입 아이디 중복체크 클릭시
     $("#idChk").on("click",function(e){
 
