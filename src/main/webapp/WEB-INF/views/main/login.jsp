@@ -6,6 +6,7 @@
 <!-- header 복붙 -->
 <%@ include file="../includes/header.jsp"%>
 
+<script src="/resources/skin/js/login.js"></script>
 
 <div id="contents" class="contents login page center-f" data-id="login">
 	<section class="section s-login">
@@ -25,22 +26,22 @@
 			</div>
 		</form>
 		<div class="joinFooter">
-			<div class="joinTxt pt-A center-f">
-				<p><strong>아직도 회원이 아니세요?</strong></p>
-				<button type="button" onclick="window.location='/main/signup'">회원가입</button>
-			</div>
 			<div class="join-sns">
-				<button onclick="https://kauth.kakao.com/oauth/authorize?client_id=c8b8e5a6dfb657aa30f9fbb8b1b6d5fd&redirect_uri=http://localhost:8080/login/oauth2/code/kakao&response_type=code">
+				<button id="kakaoLogin">
 					<i class="ico-kakao"></i>
 					카카오 로그인
 				</button>
-				<button onclick="https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=xGYVtGy2jTxj9ocjlhyj&state=state&redirect_uri=http://localhost:8080/login/oauth2/code/naver">
+				<button id="naverLogin">
 					<i class="ico-naver"></i>
 					네이버 로그인
 				</button>
 				<!-- <a href = "https://kauth.kakao.com/oauth/authorize?client_id=c8b8e5a6dfb657aa30f9fbb8b1b6d5fd&redirect_uri=http://localhost:8080/login/oauth2/code/kakao&response_type=code"><img src="/resources/skin/img/login/kakao.png" width="150" ></a>
 				</br>
 				<a href="https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=xGYVtGy2jTxj9ocjlhyj&state=state&redirect_uri=http://localhost:8080/login/oauth2/code/naver"><img src="/resources/skin/img/login/naver.png" width="150" ></a> -->
+			</div>
+			<div class="joinTxt pt-A center-f">
+				<p><strong>아직도 회원이 아니세요?</strong></p>
+				<button type="button" onclick="window.location='/main/signup'">회원가입</button>
 			</div>
 		</div>
 	</section>

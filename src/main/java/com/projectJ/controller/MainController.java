@@ -58,6 +58,8 @@ public class MainController {
 		model.addAttribute("m_phone", m_phone);
 		String m_ping = json.getString("m_ping");
 		model.addAttribute("m_ping", m_ping);
+		String m_route = json.getString("m_route");
+		model.addAttribute("m_route", m_route);
 		
 	}
 	

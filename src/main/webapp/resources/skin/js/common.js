@@ -30,6 +30,7 @@ $(function(){
         $(this).find('div').fadeOut();
     });
     
+    /*
 	// 로그인 버튼 클릭시
 	$("#loginBtn").on("click",function(e){
 		console.log("로그인버튼 클릭");
@@ -52,6 +53,8 @@ $(function(){
 			alert("비밀번호 5회이상 오입력으로 인한 계정 잠금");
 		}
 	}); //$("#loginBtn")
+	*/
+	
 	//로그아웃 버튼 클릭시
 	$("#logoutBtn").on("click",function(e){
 		console.log("로그아웃 쿠키삭제");
