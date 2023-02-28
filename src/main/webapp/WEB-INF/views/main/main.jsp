@@ -19,14 +19,14 @@
                                 <section class="section s-main banner1">
                                     <div class="layout_wrap fx jsb">
                                         <div class="inwrap">
-                                            <h2 class="title">
+                                            <h2 class="title fwb">
                                                 프렌차이즈는 <span class="fc-light">'선택'</span> <br>
                                                 창업 준비를 똑똑하게!
                                             </h2>
                                             <div class="disc commentBox">
-                                                <p><strong>우리 지역에 같은 테마가 얼마나 있을까?</strong></p>
-                                                <p><strong>어떤 프렌차이즈를 선택해야 마진이 많이 남을까?</strong></p>
-                                                <p><strong>가맹 비용을 미리 알아 볼 수는 없을까?</strong></p>
+                                                <p>우리 지역에 같은 테마가 얼마나 있을까?</p>
+                                                <p>어떤 프렌차이즈를 선택해야 마진이 많이 남을까?</p>
+                                                <p>가맹 비용을 미리 알아 볼 수는 없을까?</p>
                                             </div>
                                             <button class="mt-A">
                                                 <a href="/diagnosis/diagnosisMain">테마별 검색</a>
@@ -47,15 +47,13 @@
                                 <section class="section s-main banner2">
                                     <div class="layout_wrap fx jsb">
                                         <div class="inwrap">
-                                            <h2 class="title">
-                                            <strong>
+                                            <h2 class="title fwb">
                                                 미리 계산하는 <span class="fc-light">'순이익'</span> <br>
                                                 예상 매출과 지출을 계산해보자! <br>
-                                            </strong>    
                                             </h2>
                                             <div class="disc commentBox">
-                                                <p><strong>기업 정보공개서 기반 정확한 매출 정보를 제공</strong></p>
-                                                <p><strong>창업시 예상 월 순이익을 한눈에</strong></p>
+                                                <p>기업 정보공개서 기반 정확한 매출 정보를 제공</p>
+                                                <p>창업시 예상 월 순이익을 한눈에</p>
                                             </div>
                                             <button class="mt-A">
                                                 <a href="/franchise/incomeCalcMain">매출 계산기</a>
