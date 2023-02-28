@@ -12,7 +12,7 @@
 	<section class="section s-login">
 		<form id="loginForm">
 			<h2>
-				<img src="/resources/skin/img/login/logo_paint.png" alt="로그인로고">
+				<img src="/resources/skin/img/common/logo_big.png" alt="로고">
 			</h2>
 			<div class="fx jsb">
 				<div class="inputBox fx fdc">
