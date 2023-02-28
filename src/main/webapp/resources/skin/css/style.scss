@@ -305,6 +305,10 @@
     // color: #999;
 
     p {
+        .diagnosisMain,
+        .calcMain &{
+            display: block;
+        }
         &:before {
             content: "✓ ";
             display: inline-block;

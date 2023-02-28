@@ -250,6 +250,9 @@
 .commentBox {
   padding-bottom: 2rem;
 }
+.commentBox p .diagnosisMain, .calcMain .commentBox p {
+  display: block;
+}
 .commentBox p:before {
   content: "✓ ";
   display: inline-block;

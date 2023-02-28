@@ -119,7 +119,9 @@ select, button {
 select{
     background: transparent url('../img/common/select.png') no-repeat calc(100% - 15px)/10px;
 }
-
+select:hover{
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+}
 input[type="text"],
 input[type="search"],
 input[type="email"],

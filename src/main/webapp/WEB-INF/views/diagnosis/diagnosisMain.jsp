@@ -48,8 +48,8 @@
                                 </div>
                                 <div class="guide center-m pt-A">
                                     <div class="commentBox">
-                                        <p><strong>정확한 기업명을 입력해주세요.</strong></p>
-                                        <p><strong>선택한 기업명의 <i class="fc-red">지역별 데이터</i>를 볼 수 있어요.</strong></p>
+                                        <p>정확한 기업명을 입력해주세요.</p>
+                                        <p>선택한 기업명의 <i class="fc-red">지역별 데이터</i>를 볼 수 있어요.</p>
                                     </div>
                                     <div class="imgBox">
                                         <img src="../resources/skin/img/diagnosis/global_map.gif" alt="">
